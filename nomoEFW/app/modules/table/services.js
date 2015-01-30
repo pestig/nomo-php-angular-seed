@@ -9,11 +9,9 @@ angular.module('nomoEFW.table')
             rowsCount: null,
             page: 0
         };
-        var getTableScopeByAttributes=function(scope){
+        var setTableScopeByAttributes=function(scope){
             if (angular.isUndefined(scope.table))
                 scope.table = {};
-
-            var table = {};
 
             //find attrsClass, attrsMethod, etc. variables in scope, and puts them under table.class, table.method, etc.
             for(var scopeKey in scope){
@@ -21,13 +19,12 @@ angular.module('nomoEFW.table')
                 if(propertyMatch) {
                     var property = propertyMatch[1].charAt(0).toLowerCase() + propertyMatch[1].slice(1);
                     if (property) {
-                        table[property] = scope[scopeKey];
+                         scope.table[property] = scope[scopeKey];
                         delete scope[scopeKey];
                     }
                 }
             }
 
-            return table;
         }
 
         var getInitialSetup = function (table) {
@@ -95,7 +92,7 @@ angular.module('nomoEFW.table')
 
         return {
             getRows: getRows,
-            getTableScopeByAttributes: getTableScopeByAttributes,
+            setTableScopeByAttributes: setTableScopeByAttributes,
             getInitialSetup: getInitialSetup,
             getUserData: getUserData,
             getDefinition: getDefinition

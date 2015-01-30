@@ -4,8 +4,7 @@
 
 angular.module('nomoEFW.table')
 	.controller('nomoTableController',[ '$scope', '$timeout', 'nomoTableFactory', function ($scope,$timeout, nomoTableFactory) {
-		$scope.table = {} || $scope.table;
-		$scope.table = nomoTableFactory.getTableScopeByAttributes($scope);
+		nomoTableFactory.setTableScopeByAttributes($scope);
 
 		nomoTableFactory.getInitialSetup($scope.table).then(
 			function(table){
