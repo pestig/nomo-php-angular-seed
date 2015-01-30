@@ -17,23 +17,31 @@ Install
 
 ###Fejlesztői környezet létrhozása
 
- - [GIT](http://git-scm.com/git) installáljuk a gitet, és telepítéskor engedélyezzük, hogy a git.exe hozzá adja magát a windows PATH környezeti változóhoz 
  - [Vagrant](https://www.vagrantup.com/downloads.html) letöltése és telepítése
  - [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads) letöltése és telepítése
  
 ###Alkalmazás futtatása
 
-indítsuk el a GitBash programot.
+Töltsük le a porjektet, majd a projekt mappájában (ahol a "Vagrant" fájl van) futtasuk "vagrant up" parancsot.
+
+Ezután az alkalmazás a következő címen elérhető el: 
+
+ - forntend: [http://localhost:8080/](http://localhost:8080/)
+ - admin: [http://localhost:8080/admin](http://localhost:8080/admin) (user/pwd: info@nomo.hu/p)
+
+PhpMyAdmin felület: [http://localhost:8080/phpmyadmin](http://localhost:8080/phpmyadmin) (user/pwd: root/p)
+
+
+Install from source
+--------------------------------------
 
 Majd töltsük le a forráskódot és indítsuk el a VirtualBoxot a Vagrant-el:
+
 ```bash
 /path/to/nomoefw/sample$ git clone git@bitbucket.org:nomosolutions/php-angular-seed.git
 /path/to/nomoefw/sample$ cd php-angular-seed
 /path/to/nomoefw/sample/php-angular-seed$ vagrant up
 ```
-Ezután az alkalmazás a következő címen elérhető el: [http://localhost:8080/](http://localhost:8080/)
-
-PhpMyAdmin felület: [http://localhost:8080/phpmyadmin](http://localhost:8080/phpmyadmin)
 
 
 Fejelsztői dokumentáció
