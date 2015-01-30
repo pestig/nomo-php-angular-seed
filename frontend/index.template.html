@@ -49,10 +49,10 @@
 
 	<div ng-init="sampletable={'class':'Peldatabla'};samplefrom={'class':'Peldatabla'};">
 		{{sampletable.selection}}
-
-		<div nomo-table="sampletable" ></div>
-
-		<div ng-if="sampletable.selection.length>0" nomo-form="samplefrom" nomo-form-id="sampletable.selection[0]"></div>
+		<div class="row">
+			<div class="col-md-6" nomo-table="sampletable" ></div>
+			<div class="col-md-6" ng-if="sampletable.selection.length>0" nomo-form="samplefrom" nomo-form-id="sampletable.selection[0]"></div>
+		</div>
 	</div>
     <!-- jQuery -->
 	<script src="/bower_components/jquery/dist/jquery.min.js?ver=<%VERSION%>" type="text/javascript"></script>
