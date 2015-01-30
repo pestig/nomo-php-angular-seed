@@ -52,6 +52,8 @@ angular.module('nomoEFW.table')
 				if(currentStatus == 1){
 					if(index !== -1){
 						$scope.table.selection.splice(index, 1);
+						if($scope.table.activerow && $scope.table.activerow.rowid==$scope.table.rows[i].rowid)
+							delete $scope.table.activerow;
 					}
 				}else{
 					if(index === -1){
@@ -65,8 +67,11 @@ angular.module('nomoEFW.table')
 			var index=$scope.table.selection.indexOf(param.rowid);
 			if(index === -1)
 				$scope.table.selection.push(param.rowid);
-			else
+			else{
 				$scope.table.selection.splice(index, 1);
+				if($scope.table.activerow.rowid==param.rowid)
+					delete $scope.table.activerow;
+			}
 		};
 
 		$scope.table.onRowClick = function(param){
