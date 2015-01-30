@@ -157,9 +157,9 @@ angular.module('nomoEFW.form')
 			init: function (form) {
 			var _this = this;
 
-					form = angular.isDefined(form)?form:{};
-			form.type=form.class;
-			form.rowid=form.id;
+			form = angular.isDefined(form)?form:{};
+			form.type=form.class ||  nomoAPI.getTypeByPath();
+			form.rowid=form.id || nomoAPI.getRowidByPath();
 			form.method=form.method || 'select';
 			form.state=(form.id == 'new') ? 'new' : 'exists';
 			form.resultType=form.resultType || 'form';
