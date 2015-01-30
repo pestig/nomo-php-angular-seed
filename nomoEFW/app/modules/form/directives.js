@@ -10,6 +10,8 @@ angular.module('nomoEFW.form')
       },
       scope: {
         form: '=nomoForm',
+		attrClass: '=?nomoFormClass',
+		attrId: '=?nomoFormId'
       }
     }
   })
