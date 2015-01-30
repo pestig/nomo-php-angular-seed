@@ -69,6 +69,16 @@ angular.module('nomoEFW.table')
 				$scope.table.selection.splice(index, 1);
 		};
 
+		$scope.table.onRowClick = function(param){
+			$scope.table.selection=[];
+			if($scope.table.selection.indexOf(param.rowid) === -1)
+				$scope.table.selection.push(param.rowid);
+
+			$scope.table.activerow=param;
+		};
+
+
+
 		$scope.table.onColumnVisibleClick = function(){
 			$scope.table.getPage();
 		};
