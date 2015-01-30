@@ -36,8 +36,8 @@ angular.module('nomoEFW.table')
                     table[key] = defaultSetup[key];
                 }
             }
-            table.selection = {};
-            table.visibleColumns = [];
+            table.selection = table.selection || [];
+            table.visibleColumns = table.visibleColumns || [];
             table.activeSortColumn = {name: "rowid", direction: "asc"};
 
             table.rowsPerPage = table.rowsPerPageOptions[0];

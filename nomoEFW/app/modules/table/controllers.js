@@ -11,6 +11,7 @@ angular.module('nomoEFW.table')
 
 				$scope.table=table;
 
+
 				$scope.$watch('table.rowsPerPage',function(newval,oldval){
 					if(newval !== oldval)
 						$scope.table.getPage();
@@ -32,7 +33,7 @@ angular.module('nomoEFW.table')
 			var checkedRows = 0;
 
 			for( var i = 0; i<$scope.table.rows.length; i++){
-				if($scope.table.selection[$scope.table.rows[i].rowid])
+				if($scope.table.selection.indexOf($scope.table.rows[i].rowid) !== -1)
 					checkedRows++;
 			}
 
@@ -47,15 +48,25 @@ angular.module('nomoEFW.table')
 		$scope.table.onMasterSelectorClick = function(param) {
 			var currentStatus = $scope.table.getMasterSelectorStatus();
 			for(var i = 0; i<$scope.table.rows.length; i++){
-				$scope.table.selection[$scope.table.rows[i].rowid] = (currentStatus == 1)?false: true;
+				var index=$scope.table.selection.indexOf($scope.table.rows[i].rowid);
+				if(currentStatus == 1){
+					if(index !== -1){
+						$scope.table.selection.splice(index, 1);
+					}
+				}else{
+					if(index === -1){
+						$scope.table.selection.push($scope.table.rows[i].rowid);
+					}
+				}
 			}
 		};
 
 		$scope.table.onSelectorClick = function(param){
-			if($scope.table.selection[param.rowid])
-				delete $scope.table.selection[param.rowid];
+			var index=$scope.table.selection.indexOf(param.rowid);
+			if(index === -1)
+				$scope.table.selection.push(param.rowid);
 			else
-			$scope.table.selection[param.rowid] = true;
+				$scope.table.selection.splice(index, 1);
 		};
 
 		$scope.table.onColumnVisibleClick = function(){
