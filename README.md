@@ -1,6 +1,7 @@
 [nomoEFW](http://nomo.hu/) - nomo Enterprise Framework 
 ======================================================
 
+
 About
 --------------------------------------
 
@@ -9,6 +10,7 @@ About
  - Demo
  - Source (GIT): [https://bitbucket.org/nomosolutions/nomoefwsample](https://bitbucket.org/nomosolutions/php-angular-seed)
  - Issue tracking: [http://jira.nomo.hu](http://jira.nomo.hu)
+
 
 Install
 --------------------------------------
@@ -26,7 +28,7 @@ Forráskód letöltése és VirtualBox indtása Vagrant-el:
 /path/to/nomoefw/sample$ cd php-angular-seed
 /path/to/nomoefw/sample/php-angular-seed$ vagrant up
 ```
-Ezután az alkalmazás a következő címen elérhető: [http://localhost:8080/](http://localhost:8080/)
+Ezután az alkalmazás a következő címen elérhető el: [http://localhost:8080/](http://localhost:8080/)
 
 PhpMyAdmin felület: [http://localhost:8080/phpmyadmin](http://localhost:8080/phpmyadmin)
 
