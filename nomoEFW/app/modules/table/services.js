@@ -20,7 +20,7 @@ angular.module('nomoEFW.table')
                     var property = propertyMatch[1].charAt(0).toLowerCase() + propertyMatch[1].slice(1);
                     if (property) {
                          scope.table[property] = scope[scopeKey];
-                        delete scope[scopeKey];
+                        //delete scope[scopeKey];
                     }
                 }
             }

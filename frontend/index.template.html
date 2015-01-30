@@ -47,12 +47,12 @@
 <body>
 	<h1>Frontend</h1>
 
-	<div ng-init="usertable={'class':'User'};userfrom={'className':'User'};">
-		{{usertable.selection}}
+	<div ng-init="sampletable={'class':'Peldatabla'};samplefrom={'class':'Peldatabla'};">
+		{{sampletable.selection}}
 
-		<div nomo-table="usertable" ></div>
+		<div nomo-table="sampletable" ></div>
 
-		<div nomo-form="userfrom" ></div>
+		<div ng-if="sampletable.selection.length>0" nomo-form="samplefrom" nomo-form-id="sampletable.selection[0]"></div>
 	</div>
     <!-- jQuery -->
 	<script src="/bower_components/jquery/dist/jquery.min.js?ver=<%VERSION%>" type="text/javascript"></script>

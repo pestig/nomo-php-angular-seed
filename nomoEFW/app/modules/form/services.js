@@ -15,8 +15,8 @@ angular.module('nomoEFW.form')
                 if(propertyMatch) {
                     var property = propertyMatch[1].charAt(0).toLowerCase() + propertyMatch[1].slice(1);
                     if (property) {
-                         scope.form[property] = scope[scopeKey];
-                        delete scope[scopeKey];
+                        scope.form[property] = scope[scopeKey];
+                        //delete scope[scopeKey];
                     }
                 }
             }
@@ -158,10 +158,11 @@ angular.module('nomoEFW.form')
 			var _this = this;
 
 					form = angular.isDefined(form)?form:{};
-			form.type=form.type || nomoAPI.getTypeByPath();
-			form.rowid=form.rowid || nomoAPI.getRowidByPath();
+			form.type=form.class;
+			form.rowid=form.id;
 			form.method=form.method || 'select';
-			form.state=(form.rowid == 'new') ? 'new' : 'exists';
+			form.state=(form.id == 'new') ? 'new' : 'exists';
+				console.log(form);
 			form.resultType=form.resultType || '';
 			form.template='/nomoEFW/app/partials/form/form.partial.html' + '?ver=' + version;
 			form.definition={'fields':[]};
