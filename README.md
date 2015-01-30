@@ -23,7 +23,9 @@ Install
  
 ###Alkalmazás futtatása
 
-Forráskód letöltése és VirtualBox indtása Vagrant-el:
+indítsuk el a GitBash programot.
+
+Majd töltsük le a forráskódot és indítsuk el a VirtualBoxot a Vagrant-el:
 ```bash
 /path/to/nomoefw/sample$ git clone git@bitbucket.org:nomosolutions/php-angular-seed.git
 /path/to/nomoefw/sample$ cd php-angular-seed
