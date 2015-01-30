@@ -32,8 +32,8 @@ PhpMyAdmin felület: [http://localhost:8080/phpmyadmin](http://localhost:8080/ph
 
 
 Fejelsztői dokumentáció
-
 --------------------------------------
+
 ###Package manager ([npm](https://www.npmjs.com/), [bower](http://bower.io/)), build tool ([grunt](http://gruntjs.com/)) telepítése
 
  - [git](http://git-scm.com/git) installáljuk a gitet, és telepítéskor engedélyezzük, hogy a git.exe hozzá adja magát a windows PATH környezeti változóhoz (ha már telepítve van és telepítéskor nem engedélyezteük a git hozzáadását a PATH-hoz, akkor [így](http://blog.countableset.ch/2012/06/07/adding-git-to-windows-7-path/) tudjuk utólag hozzáadni)
