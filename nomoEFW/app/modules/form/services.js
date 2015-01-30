@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nomoEFW.form')
-  .factory('nomoForm', function ($location, $route, $rootScope, $window, nomoAPI, nomoSniff, $routeParams, $q, version) {
+  .factory('nomoFormFactory', function ($location, $route, $rootScope, $window, nomoAPI, nomoSniff, $routeParams, $q, version) {
     var _this = this;
     return {
       getFieldByName: function (name, fields) {
@@ -11,21 +11,21 @@ angular.module('nomoEFW.form')
         }
         return false;
       },
-			get: function (form) {
-				var _this = this;
-				return _this.init(form).then(function(form){
-					return nomoAPI.getUserData().then(
-						function (success) {
-							form.userdata = success
-							return _this.load(form);
-						},
-						function (error) {
-							bootbox.alert('A useradatok lekérése nem sikerült');
-							return null;
-						}
-					)
-				});
-			},
+		get: function (form) {
+			var _this = this;
+			return _this.init(form).then(function(form){
+				return nomoAPI.getUserData().then(
+					function (success) {
+						form.userdata = success
+						return _this.load(form);
+					},
+					function (error) {
+						bootbox.alert('A useradatok lekérése nem sikerült');
+						return null;
+					}
+				)
+			});
+		},
       load: function (form) {
         var _this = this;
         _this.form=form;

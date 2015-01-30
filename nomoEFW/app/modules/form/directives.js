@@ -1,18 +1,15 @@
 //'use strict';
 
 angular.module('nomoEFW.form')
-  .directive('nomoFormPanel', function (nomoFormService, version, $rootScope) {
+  .directive('nomoForm', function (nomoFormFactory, version, $rootScope) {
     return {
       restrict: 'A',
-      controller: 'nomoFormCtrl',
+      controller: 'nomoFormController',
       templateUrl: function (element, attrs) {
-        return (attrs.nomoFormPanelTemplateUrl || '/nomoEFW/app/modules/form/view.html') + '?ver=' + version;
+        return (attrs.nomoFormTemplateUrl || '/nomoEFW/app/modules/form/view.html') + '?ver=' + version;
       },
       scope: {
-        form: '=nomoFormPanel',
-      },
-      link: function ($scope, element, attrs) {
-
+        form: '=nomoForm',
       }
     }
   })
