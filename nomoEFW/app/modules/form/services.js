@@ -162,8 +162,7 @@ angular.module('nomoEFW.form')
 			form.rowid=form.id;
 			form.method=form.method || 'select';
 			form.state=(form.id == 'new') ? 'new' : 'exists';
-				console.log(form);
-			form.resultType=form.resultType || '';
+			form.resultType=form.resultType || 'form';
 			form.template='/nomoEFW/app/partials/form/form.partial.html' + '?ver=' + version;
 			form.definition={'fields':[]};
 			form.data= form.data || {};
