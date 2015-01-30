@@ -47,10 +47,12 @@
 <body>
 	<h1>Frontend</h1>
 
-	<div ng-init="usertable={'class':'User'}">
+	<div ng-init="usertable={'class':'User'};userfrom={'className':'User'};">
 		{{usertable.selection}}
 
 		<div nomo-table="usertable" ></div>
+
+		<div xxnomo-form-panel="userfrom" ></div>
 	</div>
     <!-- jQuery -->
 	<script src="/bower_components/jquery/dist/jquery.min.js?ver=<%VERSION%>" type="text/javascript"></script>

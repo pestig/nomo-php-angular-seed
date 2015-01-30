@@ -3,10 +3,10 @@
 angular.module('nomoEFW', [
     'ngRoute',
     'nomoEFW.common',
-    'nomoEFW.form',
-	'nomoEFW.table',
-    'nomoEFW.report',
-    'nomoEFW.modal',
     'nomoEFW.session',
-    'nomoEFW.pagination',
+    'nomoEFW.modal',
+	'nomoEFW.form',
+	'nomoEFW.table',
+	'nomoEFW.pagination',
+    'nomoEFW.report'
 ])
