@@ -1,0 +1,24 @@
+## Default .htaccess file
+RewriteEngine On  
+RewriteBase / 
+RewriteCond   %{REQUEST_URI}  !^/_dev/.*
+RewriteCond   %{REQUEST_URI}  !^/app.*
+RewriteCond   %{REQUEST_URI}  !^/bower_components/.*
+RewriteCond   %{REQUEST_URI}  !^/nomoEFW/app/.*
+RewriteCond   %{REQUEST_URI}  !^/admin/app/.*
+RewriteCond   %{REQUEST_URI}  !^/frontend/app/.*
+RewriteCond   %{REQUEST_URI}  !^/backend/app/.*
+RewriteCond   %{REQUEST_URI}  !^/media/.*
+RewriteCond   %{REQUEST_URI}  !^/dist/.*
+RewriteCond   %{REQUEST_URI}  !^/robots.txt$
+RewriteCond   %{REQUEST_URI}  !^/patchdb.php.*
+RewriteCond   %{REQUEST_URI}  !^/cron.php.*
+RewriteCond   %{REQUEST_URI}  !^/favicon.ico$
+RewriteRule ^(.*)$ index.php [L]   
+
+AddType text/cache-manifest .manifest
+
+##<IfModule mod_deflate.c>
+##  SetOutputFilter DEFLATE
+##  AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript application/json
+##</IfModule>

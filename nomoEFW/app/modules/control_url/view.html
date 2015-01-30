@@ -1,0 +1,5 @@
+ <div>
+    <!-- CONTROL: URL -->
+    <input type="text" nomo-control-url class="form-control" ng-model="form.data[control.name]" ng-required="{{(control.required==true)}}" ng-disabled="{{(control.name=='rowid')}}" />
+    Megtekintés: <a href="http://{{control.url_prefix}}{{form.data[name]}}" target="preview">http://{{control.url_prefix}}{{form.data[name]}}</a>
+  </div>

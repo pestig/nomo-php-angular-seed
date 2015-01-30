@@ -1,0 +1,8 @@
+<div>
+    <!-- CONTROL: SELECTBOX -->
+    <select nomo-control-select-ajax="" class="form-control" ng-model="form.data[control.name]" ng-options="optionItem.rowid as optionItem.label for optionItem in control.options">
+    </select>
+		<span class="input-group-btn" ng-repeat="button in control.params.buttons">
+      <button class="btn {{(button.className || 'default')}}" ng-click="form.actions[button.action](button.params)" type="button"><i ng-if="button.icon" class="{{button.icon}}"></i> {{button.label}}</button>
+    </span>
+</div>

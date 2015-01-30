@@ -1,0 +1,15 @@
+!.gitkeep
+/_dev/*
+/stats/*
+/wiki/*
+/error/*
+/logs/*
+/node_modules/
+/bower_components/
+/dist/
+/nomoEFW/lib/dompdf/lib/fonts/*
+/config.php
+/npm-debug.log
+/.gitftppass
+.vagrant
+.idea

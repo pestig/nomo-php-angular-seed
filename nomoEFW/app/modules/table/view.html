@@ -1,0 +1,89 @@
+<!--Tri-state checkbox hack-->
+<style>
+
+    .tristatecheckbox{
+        height:20px;
+        overflow:hidden;
+        width:20px;
+        font-size:11px;
+        padding:0;
+    }
+    .tristatecheckbox>.fa{
+        display:none;
+    }
+    .tristatecheckbox.state-1>.fa-check{
+        after: '&nbsp;';
+    }
+    .tristatecheckbox.state-1>.fa-check{
+        display:block;
+    }
+    .tristatecheckbox.state-2>.fa-square{
+        display:block;
+    }
+</style>
+
+
+<!--NOMOTABLE HEADER-->
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-inline">
+
+            <!--VIEW DROPDOWN-->
+            <div class="dropdown" style="display:inline">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    View
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li  ng-repeat="column in table.definition.fields" role="presentation"><label role="menuitem" tabindex="-1">
+                        <input ng-model="column.columnVisible" ng-change="table.onColumnVisibleClick()" type="checkbox"> {{column.label}}</label>
+                    </li>
+                </ul>
+            </div>
+            <!--VIEW DROPDOWN-->
+
+            <!--VIEW ROWS PER PAGE CONTROL-->
+            <select class="form-control"  ng-model="table.rowsPerPage" ng-options="rowsInPage.label for rowsInPage in table.rowsPerPageOptions"></select>
+            rows per page
+            <!--VIEW ROWS PER PAGE CONTROL-->
+
+
+        </div>
+    </div>
+    <div class="col-md-6 text-right">
+        <!--PAGINATION-->
+        <span nomo-pagination ng-value="table.page" nomo-pagination-row-count="table.rowCount" nomo-pagination-rows-per-page="table.rowsPerPage"></span>
+        <!--PAGINATION-->
+    </div>
+</div>
+<!--NOMOTABLE HEADER-->
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+        <td>
+            <button class="btn btn-default tristatecheckbox state-{{table.getMasterSelectorStatus()}}" ng-click="table.onMasterSelectorClick()"><i class="fa fa-check"></i><i class="fa fa-square"></i></button>
+        </td>
+        <td ng-if="column.columnVisible" ng-repeat="column in table.definition.fields">
+            {{column.label}}
+            <a class="nomotable-sort btn btn-xs btn-default" ng-class="{'btn-primary': (table.activeSortColumn.name == column.name && table.activeSortColumn.direction == 'asc')}" ng-click="table.onSortClick(column.name,'asc')"><i class="fa fa-caret-up"></i></a>
+            <a class="nomotable-sort btn btn-xs btn-default" ng-class="{'btn-primary': (table.activeSortColumn.name == column.name && table.activeSortColumn.direction == 'desc')}" ng-click="table.onSortClick(column.name,'desc')"><i class="fa fa-caret-down"></i></a>
+        </td>
+        <td>Műveletek</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in table.rows" ng-class="{active: (table.selection[row.rowid])}">
+        <td><input type="checkbox" ng-checked="table.selection[row.rowid]" ng-click="table.onSelectorClick(row)"></td>
+        <td  ng-if="column.columnVisible" ng-repeat="column in table.definition.fields" ng-init="$rowIndex = $index">
+            <span ng-if="!column.templateUrl">{{row[column.name+'_nomoefw_label'] || row[column.name]}}</span>
+            <span ng-if="column.templateUrl" nomo-table-cell-template="row[column.name]" template-url="column.templateUrl" ></span>
+        </td>
+        <td>
+
+            <a href="/admin/{{table.class}}/{{row['rowid']}}">Edit</a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>

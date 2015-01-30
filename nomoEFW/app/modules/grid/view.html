@@ -1,0 +1,35 @@
+<div xxnomo-grid-filter-quick></div>
+<div xxnomo-grid-filter-advanced></div>
+
+<div class="table-toolbar">
+  <div class="btn-group" ng-repeat="button in grid.buttons">
+		<button ng-click="grid.actions[button.action]()" class="btn {{(button.className ||'default')}}">
+			{{button.label}}
+			<i ng-if="button.icon" ng-class="button.icon"></i>
+		</button>
+	</div>
+  <div class="btn-group">
+      <button ng-click="grid.actions.toggleAdvancedFilter()" class="btn default" ng-class="{default: grid.filters.advanced.length==0,blue: grid.filters.advanced.length!=0}" type="button">
+          Egyedi szűrés <span ng-if="advancedFilterVisibility">bezárása</span>
+          <i class="fa fa-filter"></i>
+      </button>
+  </div>
+  <div class="btn-group pull-right">
+    <a class="btn default" href="#" data-toggle="dropdown">Nézet <i class="fa fa-angle-down"></i></a>
+      <div class="datatables-colvis-dropdown dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+        <label ng-repeat="col in grid.definition.fields">
+          <input ng-click="grid.colVisClicked($index+1)" type="checkbox" checked>{{col.label}}
+        </label>
+      </div>
+	</div>
+</div>
+<table ng-if="grid.dataTableOptions" nomo-data-table cellspacing="0" cellpadding="0" border="0" class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr class="dgvc_header_columns"></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="dataTables_empty"  colspan="100">Adatok betöltése...</td>
+    </tr>
+  </tbody>
+</table>

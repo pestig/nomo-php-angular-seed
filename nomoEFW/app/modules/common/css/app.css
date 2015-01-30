@@ -1,0 +1,9 @@
+.header.navbar .navbar-nav >li.navbar-text{
+
+  margin-right:3px !important;
+  line-height:20px !important;
+  margin-top:8px !important;
+}
+.calendar{
+  max-width:700px;
+}

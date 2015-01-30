@@ -1,0 +1,15 @@
+
+<!-- rename to admin_table_of_contents-->
+<div class="list-group" ng-controller="nomoMenuViewCtrl">
+	<a ng-if="online || menuItem.name=='Munkalapok (tech)'" ng-href="{{menuItem.outfilter}}" class="list-group-item " ng-repeat="menuItem in menuItems">
+		<h4 class="list-group-item-heading">
+			<i ng-if="menuItem.icon_css_class" class="{{menuItem.icon_css_class}}"></i>
+			{{menuItem.name}}
+		</h4>
+		<p class="list-group-item-text">
+			<span ng-if="menuItem.menuitems.length>0">
+				<span ng-repeat="child in menuItem.menuitems">{{child.name}}<span ng-if="!$last">,</span> </span>
+			</span>
+		</p>
+	</a>
+</div>

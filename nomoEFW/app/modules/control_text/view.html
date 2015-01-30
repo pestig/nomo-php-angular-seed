@@ -1,0 +1,7 @@
+<div class="{{(control.addon)?'input-group':''}}">
+	<input ng-if="control.mask"  type="{{(control.inputType)?control.inputType:'text'}}" class="form-control" ng-model="form.data[control.name]" ng-required="{{(control.required==true)}}" ng-disabled="control.readonly==true" nomo-input-mask="{{(control.mask)}}"/>
+	<input ng-if="!control.mask" type="{{(control.inputType)?control.inputType:'text'}}" class="form-control" ng-model="form.data[control.name]" ng-required="{{(control.required==true)}}" ng-disabled="control.readonly==true"/>
+	<span ng-if="control.addon" class="input-group-addon">
+		{{control.addon}}
+	</span>
+</div>

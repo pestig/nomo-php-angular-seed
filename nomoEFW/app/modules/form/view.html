@@ -1,0 +1,37 @@
+<!--For easy form validation on pagecontroller-->
+<div >
+	<h1>{{connector}}</h1>
+	<div>
+		<div class="form-horizontal " role="form" >
+			<div class="form-body ">
+				<ng-form name="nomoAngularForm">
+					<div ng-repeat="control in form.definition.fields" ng-if="(control.visible.editform==true)?true:control.visible.default">
+						<div class="form-group ng-form" >
+							<label class="col-md-4 control-label">{{control.label}}
+								<span ng-if="control.required" class="required">*</span>
+								<span ng-if="!control.required"></span>
+							</label>
+							<div class="control-content col-md-8">
+								<!--CONTROL TEMPLATE INCLUDE-->
+								<div ng-include="control.formTemplateUrl"></div>
+								<div class="help-block" >
+									<!--<span class="error-item error-required">A mező kitöltése kötelező.</span>
+									<span class="warning-item warning-pattern">A mező nem érvényes, kérjük ellenőrizze.</span>-->
+								</div>
+							</div>
+						</div>
+					</div>
+					<span style="color:red" ng-if="nomoAngularForm.$invalid">Invalid form!</span>
+				</ng-form>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+
+		<div class="form-actions fluid" ng-if="form.buttons.length">
+			<div class="col-md-offset-4 col-md-8">
+				<span ng-include="'/nomoEFW/app/modules/form/buttons.html?ver='+version"></span>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<div class="input-group" style="width:100%">
+    <!-- CONTROL: SELECT2 /W AJAX -->
+  	<div class="form_control">
+      <div nomo-control-select2-ajax class="select2-container form-control select2"></div>
+    </div>
+    <span class="input-group-btn" ng-repeat="button in control.params.buttons">
+      <button class="btn {{(button.className || 'default')}}" ng-click="form.actions[button.action](button.params)" type="button"><i ng-if="button.icon" class="{{button.icon}}"></i> {{button.label}}</button>
+    </span>
+  </div>

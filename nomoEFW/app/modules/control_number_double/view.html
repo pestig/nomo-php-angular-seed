@@ -1,0 +1,8 @@
+<div class="{{(control.addon)?'input-group':''}}">
+    <!-- CONTROL: Number -->
+    <input type="tel" nomo-input-mask="{{control.mask}}" class="form-control" ng-model="form.data[control.name]" ng-required="{{(control.required==true)}}" ng-disabled="{{(control.name=='rowid' || control.readonly==true)}}" />
+
+    <span ng-if="control.addon" class="input-group-addon">
+      {{control.addon}}
+    </span>
+  </div>

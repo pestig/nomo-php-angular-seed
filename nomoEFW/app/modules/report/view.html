@@ -1,0 +1,39 @@
+<div ng-controller="NomoReportCtrl">
+
+	<div ng-if="advanced_filter" ng-include="'/nomoEFW/app/modules/advanced_filter/view.html?ver='+version"></div>
+
+
+	<form class="form-inline" role="form">
+		<select class="form-control input-sm" ng-model="view.yaxis" ng-options="item.label for item in view.yaxis_options"></select>
+		<select class="form-control input-sm" ng-model="view.interval" ng-options="item.label for item in view.interval_options"></select> bontásban, ahol a
+		<select class="form-control input-sm" ng-model="view.xaxis" ng-options="item.label for item in view.xaxis_options"></select>
+		a(z) <input class="form-control  input-sm" ng-model="view.from"> - <input class="form-control  input-sm" ng-model="view.to"> közötti időszakra esik
+		<button class="btn btn-default btn-sm"  ng-click="advanced_filter.addFilter()"><i class="fa fa-plus"></i> feltétel</button>
+		<button class="btn blue btn-sm" ng-click="showReportClick()" >Megjelenítés</button>
+	</form>
+
+	<p />
+	<div class="row ">
+		<div class="col-md-6 col-sm-6">
+			<div nomoefw-flot="view.flot" id="placeholder" style="width:850px;height:450px"></div>
+
+
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<table ng-if="table_rows" id="report_table" style="width:450px;margin-left:200px" border="1">
+				<thead>
+					<tr>
+						<th>Időszak</th>
+						<th>{{view.yaxis.label}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in table_rows">
+						<td>{{item[0]}}</td>
+						<td style="text-align:right">{{item[1]}}</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+</div>

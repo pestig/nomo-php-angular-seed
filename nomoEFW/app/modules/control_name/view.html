@@ -1,0 +1,5 @@
+<div class="{{(control.addon)?'input-group':''}}">
+    <!-- CONTROL: NAME -->
+    <input style="text-transform: capitalize" nomo-control-name="" type="text" class="form-control" ng-model="form.data[control.name]" ng-required="{{(control.required==true)}}" ng-disabled="control.readonly==true"/>
+    <span ng-if="control.addon" class="input-group-addon" ng-bind-html="control.addon"></span>
+  </div>

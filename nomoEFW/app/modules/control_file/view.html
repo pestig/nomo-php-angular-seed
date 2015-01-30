@@ -1,0 +1,48 @@
+<div nomo-control-file>
+      <!--Ha még nincs file:-->
+      <input type="hidden" ng-model="form.data[control.name]" />
+      <span >
+        <span class="btn default fileinput-button">
+            <i class="fa fa-upload"></i>
+            <span>
+                Fájl feltöltése...
+            </span>
+            <input type="file" name="{{control.name}}{{(control.params.multi==true)?'[]':''}}" accept="{{control.params.attributeAccept}}" capture="{{control.params.attributeCapture}}" />
+        </span>
+      </span>
+      <a ng-if="form.data[control.name]>0 && form.data[control.name]!='0'" href="javascript:;" ng-click="nomoInputFile.deleteFile()" class="btn red"><i class="fa fa-times"></i></a>
+      <br />
+      <table style="margin-top:1em" ng-show="nomoInputFile.file.src">
+        <tbody>
+          <tr>
+            <td >
+              <a ng-if="nomoInputFile.type=='image' && nomoInputFile.file.src" ng-href="{{nomoInputFile.file.src}}" data-lightbox="nomofile" data-title="{{nomoInputFile.file.nev}}" target="_blank" class="thumbnail"><img ng-src="{{nomoInputFile.file.thumbsrc}}" style="max-height:90px;max-width:100%" /></a>
+              <a class="btn default" ng-href="{{nomoInputFile.file.src}}" target="_blank" ng-if="nomoInputFile.type!='image'">
+                <i class="fa fa-file-text-o" ></i>
+              </a>
+            </td>
+            <td>
+              <ul>
+                <li> {{nomoInputFile.file.nev}}</li>
+                <li> {{nomoInputFile.file.meret | byte}}</li>
+                <li>
+                  <a ng-href="{{nomoInputFile.file.src}}" target="_blank" class="btn default btn-xs">
+                    <i class="fa fa-download"></i>
+                    File letöltése
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div style="display:none" class="progress progress-striped active">
+        <div class="progress-bar progress-bar-success" style="width: 0%">
+          <span class="sr-only">
+            {{nomoInputFile.label.progress}}
+          </span>
+        </div>
+      </div>
+    </div>

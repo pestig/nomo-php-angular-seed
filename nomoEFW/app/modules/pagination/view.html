@@ -1,0 +1,7 @@
+<nav>
+    <ul class="pagination">
+        <li class="" ng-class="{disabled: page==0}"><a ng-disabled="page <= 0" href="javascript:;" ng-click="setPage('down')" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        <li ng-repeat="pageData in getPaginationArray() track by $index" ng-class="{active: page==pageData}"><a href="javascript:;" ng-click="setPage(pageData)">{{pageData+1}} <span class="sr-only">{{$index+1}}</span></a></li>
+        <li class="" ng-class="{disabled: page==rowCount}"><a ng-click="setPage('up')" href="javascript:;" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+</nav>

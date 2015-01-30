@@ -1,0 +1,6 @@
+<div class="radio-list">
+	<!-- CONTROL: RADIO -->
+		<label class="radio-inline" ng-repeat="radioItem in control.options">
+			<input type="radio" ng-model="form.data[control.name]" value="{{radioItem}}" name="{{control.name}}"> {{radioItem}}
+		</label>
+</div>

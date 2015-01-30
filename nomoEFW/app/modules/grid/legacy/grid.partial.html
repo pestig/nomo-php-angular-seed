@@ -1,0 +1,30 @@
+<div nomo-grid-filter-quick></div>
+<div nomo-grid-filter-advanced></div>
+
+<div class="table-toolbar">
+  <span nomo-grid-buttons=""></span>
+  <div class="btn-group">
+      <button ng-click="grid.actions.toggleAdvancedFilter()" class="btn default" ng-class="{default: grid.filters.advanced.length==0,blue: grid.filters.advanced.length!=0}" type="button">
+          Egyedi szűrés <span ng-if="advancedFilterVisibility">bezárása</span>
+          <i class="fa fa-filter"></i>
+      </button>
+  </div>
+  <div class="btn-group pull-right">
+    <a class="btn default" href="#" data-toggle="dropdown">Nézet <i class="fa fa-angle-down"></i></a>
+      <div class="datatables-colvis-dropdown dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+        <label ng-repeat="col in grid.definition.fields">
+          <input ng-click="grid.colVisClicked($index+1)" type="checkbox" checked>{{col.label}}
+        </label>
+      </div>
+	</div>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover dataTable">
+  <thead>
+    <tr></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="dataTables_empty"  colspan="100">Adatok betöltése...</td>
+    </tr>
+  </tbody>
+</table>

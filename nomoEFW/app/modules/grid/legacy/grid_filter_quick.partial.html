@@ -1,0 +1,9 @@
+ <form role="form" class="form-inline">
+				<span ng-repeat="quickFilterFormItem in grid.quickFilterForm.definition">
+					<div class="form-group">
+						<label>{{quickFilterFormItem.label}}</label>
+						<div style="width:240px" nomo-form-control="quickFilterFormItem.name" nomo-form-control-form="grid.quickFilterForm" nomo-form-control-index="$index"></div>
+					</div>
+				</span>
+
+</form>

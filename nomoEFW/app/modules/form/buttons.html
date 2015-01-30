@@ -1,0 +1,13 @@
+<span ng-repeat="button in form.buttons"  ng-switch on="button.buttontype">
+		<span ng-switch-when="split" class="btn-group dropup">
+			<button ng-click="form.actions[button.options[0].action](button.options[0].params)" type="button" ng-disabled="nomoFormView.$invalid"  class="btn {{(button.className || 'default')}}"  type="submit">{{button.options[0].label}}</button>
+			<button type="button" ng-disabled="nomoFormView.$invalid"  class="btn {{(button.className || 'default')}} dropdown-toggle" data-toggle="dropdown"><i class="fa fa-angle-down"></i></button>
+			<ul class="dropdown-menu" role="menu">
+				<li ng-repeat="option in button.options">
+					<a href="javascript:;" ng-click="form.actions[option.action](option.params)" >{{option.label}}</a>
+				</li>
+			</ul>
+		</span>
+	<button ng-switch-default="" ng-click="form.actions[button.action](button.params)" ng-disabled="button.action=='update' && nomoFormView.$invalid" class="btn {{(button.className || 'default')}} "><i ng-if="button.icon" class="{{button.icon}}"></i> {{button.label}}</button>
+
+</span>
