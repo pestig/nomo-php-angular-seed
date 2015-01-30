@@ -9,7 +9,7 @@ angular.module('nomoEFW.form')
         return (attrs.nomoFormTemplateUrl || '/nomoEFW/app/modules/form/view.html') + '?ver=' + version;
       },
       scope: {
-        form: '=nomoForm',
+        form: '=?nomoForm',
 		attrClass: '=?nomoFormClass',
 		attrId: '=?nomoFormId'
       }
