@@ -77,7 +77,7 @@
         <td><input type="checkbox" ng-checked="table.selection[row.rowid]" ng-click="table.onSelectorClick(row)"></td>
         <td  ng-if="column.columnVisible" ng-repeat="column in table.definition.fields" ng-init="$rowIndex = $index">
             <span ng-if="!column.tableTemplateUrl">{{row[column.name+'_nomoefw_label'] || row[column.name]}}</span>
-            <span ng-if="column.tableTemplateUrl" ng-include="control.tableTemplateUrl"></span>
+            <span ng-if="column.tableTemplateUrl" ng-include="column.tableTemplateUrl"></span>
         </td>
         <td>
 
