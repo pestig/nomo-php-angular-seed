@@ -11,9 +11,6 @@ angular.module('nomoEFW.table')
 
 				$scope.table=table;
 
-				//testing custom partials in cells
-				//$scope.table.definition.fields[1].templateUrl="/admin/app/partials/nomoTableCustomCell_0.partial.html";
-
 				$scope.$watch('table.rowsPerPage',function(newval,oldval){
 					if(newval !== oldval)
 						$scope.table.getPage();
