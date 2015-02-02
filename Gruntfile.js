@@ -16,16 +16,19 @@ module.exports = function (grunt) {
                 files: [
 
                   // bootstrap
-                  { expand: true, cwd: 'bower_components/bootstrap/dist/', src: ['**'], dest: 'dist/3rdparty_libs/bootstrap/', filter: 'isFile' },
+                  { expand: true, cwd: 'bower_components/bootstrap/dist/', src: ['**'], dest: 'dist/lib/bootstrap/', filter: 'isFile' },
 
                   // fontawesome
-                  { expand: true, cwd: 'bower_components/fontawesome/', src: ['**'], dest: 'dist/3rdparty_libs/fontawesome/', filter: 'isFile' },
+                  { expand: true, cwd: 'bower_components/fontawesome/', src: ['**'], dest: 'dist/lib/fontawesome/', filter: 'isFile' },
 
-                  // datatables-plugins-integration-bootstrap
-                  { expand: true, cwd: 'bower_components/datatables-plugins/integration/bootstrap/', src: ['**'], dest: 'dist/3rdparty_libs/datatables-bootstrap/', filter: 'isFile' },
+				  // lightbox
+                  { expand: true, cwd: 'nomoEFW/app/lib/lightbox/', src: ['**'], dest: 'dist/lib/lightbox/', filter: 'isFile' },
 
-                  // core css
-                  //{ expand: true, cwd: 'core/common/gfx/', src: ['**'], dest: 'dist/css/', filter: 'isFile' },
+				  // select2
+                  { expand: true, cwd: 'nomoEFW/app/lib/select2/', src: ['**'], dest: 'dist/lib/select2/', filter: 'isFile' },
+
+				  // jquery-file-upload
+				  { expand: true, cwd: '/nomoEFW/app/lib/jquery-file-upload/', src: ['**'], dest: 'dist/lib/jquery-file-upload/', filter: 'isFile' },
 
                 ],
             },
@@ -47,19 +50,35 @@ module.exports = function (grunt) {
 
             libs: {
                 options: {
-                    target: './dist/../dist/3rdparty_libs/../'
+                    target: './dist/../dist/lib/../'
                 },
                 files: {
-                    'dist/3rdparty_libs/style.min.css': [
-                        'bower_components/angular/angular-csp.css',
-                        'bower_components/jquery-ui/themes/smoothness/jquery-ui.css',
+                    'dist/lib/style.min.css': [
+                        'dist/lib/bootstrap/css/bootstrap.css',
+						'dist/lib/fontawesome/css/font-awesome.css',
+						'bower_components/angular/angular-csp.css',
+                        'dist/lib/lightbox/css/lightbox.css',
+						'dist/lib/select2/select2.css',
+						'dist/lib/select2/select2-metronic.css',
+						'dist/lib/jquery-file-upload/css/jquery.fileupload.css',
+						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
+						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
+						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
+						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
+						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
+
+
+
+
+
                         'bower_components/angular-ui-select/dist/select.css',
-                        'dist/3rdparty_libs/bootstrap/css/bootstrap.css',
+
+
                         'bower_components/revolunet-angular-carousel/dist/angular-carousel.css',
                         'bower_components/angular-bootstrap-datetimepicker-github/src/css/datetimepicker.css',
                         'dist/3rdparty_libs/datatables-bootstrap/3/dataTables.bootstrap.css',
                         'bower_components/datatables-fixedcolumns/css/dataTables.fixedColumns.css',
-                        'dist/3rdparty_libs/fontawesome/css/font-awesome.css'
+
                     ]
                 }
             },
@@ -180,6 +199,6 @@ module.exports = function (grunt) {
     grunt.registerTask('build-with-test', ['test-single-run', 'build']);
 
     // Default task.
-    grunt.registerTask('default', ['build-with-test']);
+    grunt.registerTask('default', ['build']);
 
 };
