@@ -97,6 +97,4 @@ angular.module('nomoEFW.table')
             getUserData: getUserData,
             getDefinition: getDefinition
         }
-
-
     }])

@@ -82,8 +82,6 @@ angular.module('nomoEFW.table')
 			$scope.table.activerow=param;
 		};
 
-
-
 		$scope.table.onColumnVisibleClick = function(){
 			$scope.table.getPage();
 		};

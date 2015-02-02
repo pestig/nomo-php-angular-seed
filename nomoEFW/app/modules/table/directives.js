@@ -14,13 +14,3 @@ angular.module('nomoEFW.table')
 			}
 		}
 	})
-	.directive('nomoTableCellTemplate', function (version) {
-		return {
-			restrict: 'A',
-			template: '<span ng-include="templateUrl"></span>',
-			scope:{
-				value: "=?nomoTableCellTemplate",
-				templateUrl: "="
-			}
-		}
-	})
