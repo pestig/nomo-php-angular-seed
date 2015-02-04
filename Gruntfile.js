@@ -1,12 +1,8 @@
 module.exports = function (grunt) {
     // Project configuration.
-    var globalConfig = {
-        cfg: grunt.file.readJSON('config.json')
-    };
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        cfg: grunt.file.readJSON('config.json'),
         clean: {
             beforebuild: ["dist/"],
             afterbuild: ['dist/build/'],
@@ -34,20 +30,7 @@ module.exports = function (grunt) {
             },
 
         },
-        html2js: {
-            options: {
-                // custom options, see below
-                rename: function (moduleName) {
-                    return '/' + moduleName.replace('../', '').replace('.html', '.html?ver=' + globalConfig.cfg.FNET_VERSION_ID);
-                }
-            },
-            main: {
-                src: ['core/**/*.html'],
-                dest: 'dist/build/partials.js'
-            },
-        },
         cssmin: {
-
             libs: {
                 options: {
                     target: './dist/../dist/lib/../'
@@ -74,59 +57,28 @@ module.exports = function (grunt) {
                     target: './dist/../'
                 },
                 files: {
-                    'dist/style.min.css': [
-                        'dist/3rdparty_libs/style.min.css',
-                        'core/common/gfx/style.css'
+                    'dist/nomo.min.css': [
+                        'dist/lib/style.min.css',
+                        'nomoEFW/app/modules/common/css/app.css'
                     ]
                 }
             }
         },
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> version:<%= cfg.FNET_VERSION_ID %>  */\n',
+                banner: '/*! <%= pkg.name %> version:<%= pkg.name %>  */\n',
                 mangle: false,
                 report: 'min'
-            },
-            lib: {
-                files: [{
-                    //expand: false,
-                    src: [
-                        'bower_components/jquery/dist/jquery.js',
-                        'bower_components/jquery-ui/jquery-ui.js',
-                        'bower_components/datatables/media/js/jquery.dataTables.js',
-                        'bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js',
-                        'bower_components/datatables-fixedcolumns/js/dataTables.fixedColumns.js',
-                        'bower_components/bootstrap/dist/js/bootstrap.js',
-                        'bower_components/bootbox/bootbox.js',
-                        'bower_components/iscrolltest/src/iscroll.js',
-                        'bower_components/angular/angular.js',
-                        'bower_components/angular-route/angular-route.js',
-                        'bower_components/angular-touch/angular-touch.js',
-                        'bower_components/angular-animate/angular-animate.js',
-                        'bower_components/angular-cookies/angular-cookies.js',
-                        'lib/angular-translate/angular-translate.js',
-                        'lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-                        'bower_components/angular-ui-select/dist/select.js',
-                        'lib/bootstrap-ui/ui-bootstrap-tpls.js',
-                        'bower_components/ng-iscroll/src/ng-iscroll.js',
-                        'bower_components/revolunet-angular-carousel/dist/angular-carousel.js',
-                        'bower_components/angular-bootstrap-datetimepicker-github/src/js/datetimepicker.js',
-                        'bower_components/moment/min/moment-with-locales.js',
-                        'bower_components/angular-ui-utils/ui-utils.js',
-                        'bower_components/danialfarid-angular-file-upload/dist/angular-file-upload-all.js'
-                    ],
-                    dest: 'dist/3rdparty_libs/3rdparty_libs.min.js'
-                }]
             },
             all: {
                 files: [{
                     //expand: false,
                     src: [
-                        'core/effector.js',
-                        'core/**/module.js',
-                        'core/**/*.js'
+                        'nomoEFW/app/modules/app.js',
+                        'nomoEFW/app/modules/**/module.js',
+                        'nomoEFW/app/modules/**/*.js'
                     ],
-                    dest: 'dist/build/effector.core.min.js'
+                    dest: 'dist/build/nomo.core.min.js'
                 }]
             }
         },
@@ -134,14 +86,43 @@ module.exports = function (grunt) {
             options: {
                 separator: ';'
             },
-            js: {
+			lib: {
                 src: [
-                    'dist/3rdparty_libs/3rdparty_libs.min.js',
-                    'dist/build/partials.js',
-                    'dist/build/effector.core.min.js',
+                    'bower_components/jquery/dist/jquery.min.js',
+					'bower_components/jquery-ui/jquery-ui.min.js',
+					'bower_components/bootstrap/dist/js/bootstrap.min.js',
+					'bower_components/angular/angular.js',
+					'bower_components/angular-route/angular-route.js',
+					'bower_components/angular-bootstrap/ui-bootstrap.js',
+					'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+					'nomoEFW/app/lib/jquery-autosize/jquery.autosize.js',
+					'nomoEFW/app/lib/jquery-mask/jquery.mask.js',
+					'nomoEFW/app/lib/lightbox/js/lightbox.min.js',
+					'nomoEFW/app/lib/lz-string/libs/lz-string-1.3.3-min.js',
+					'nomoEFW/app/lib/bootbox/bootbox.min.js',
+					'nomoEFW/app/lib/bootstrap-datepicker/js/bootstrap-datepicker.js',
+					'nomoEFW/app/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js',
+					'nomoEFW/app/lib/bootstrap-daterangepicker/moment.min.js',
+					'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker.js',
+					'nomoEFW/app/lib/bootstrap-colorpicker/js/bootstrap-colorpicker.js',
+					'nomoEFW/app/lib/bootstrap-timepicker/js/bootstrap-timepicker.js',
+					'nomoEFW/app/lib/clockface/js/clockface.js',
+					'nomoEFW/app/lib/gritter/js/jquery.gritter.js',
+					'nomoEFW/app/lib/jquery-file-upload/js/jquery.fileupload.js',
+					'nomoEFW/app/lib/jquery-file-upload/js/jquery.iframe-transport.js',
+					'nomoEFW/app/lib/select2/select2.min.js'
 
                 ],
-                dest: 'dist/effector.min.js'
+                dest: 'dist/lib/all.js'
+            },
+
+			all: {
+                src: [
+                    'dist/lib/all.js',
+                    'dist/build/nomo.core.min.js',
+
+                ],
+                dest: 'dist/nomo.min.js'
             }
         },
         karma: {
@@ -182,7 +163,8 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['karma:dev']);
     grunt.registerTask('test-phantom', ['karma:phantom']);
     grunt.registerTask('test-chrome', ['karma:chrome']);
-    grunt.registerTask('build', ['clean:beforebuild', 'copy:main', 'cssmin:libs', 'cssmin:all', 'uglify', 'concat:js', 'clean:afterbuild']); //', clean:afterbuild'
+    //grunt.registerTask('build', ['clean:beforebuild', 'copy:main', 'cssmin:libs', 'cssmin:all', 'uglify', 'concat:lib', 'concat:all', 'clean:afterbuild']);
+	grunt.registerTask('build', ['clean:beforebuild', 'copy:main', 'cssmin:libs', 'cssmin:all', 'uglify', 'concat:lib']);
     grunt.registerTask('build-with-test', ['test-single-run', 'build']);
 
     // Default task.
