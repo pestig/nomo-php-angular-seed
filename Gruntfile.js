@@ -60,25 +60,12 @@ module.exports = function (grunt) {
                         'dist/lib/lightbox/css/lightbox.css',
 						'dist/lib/select2/select2.css',
 						'dist/lib/select2/select2-metronic.css',
-						'dist/lib/jquery-file-upload/css/jquery.fileupload.css',
 						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
-						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
-						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
-						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
-						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
-
-
-
-
-
-                        'bower_components/angular-ui-select/dist/select.css',
-
-
-                        'bower_components/revolunet-angular-carousel/dist/angular-carousel.css',
-                        'bower_components/angular-bootstrap-datetimepicker-github/src/css/datetimepicker.css',
-                        'dist/3rdparty_libs/datatables-bootstrap/3/dataTables.bootstrap.css',
-                        'bower_components/datatables-fixedcolumns/css/dataTables.fixedColumns.css',
-
+						'nomoEFW/app/lib/bootstrap-datepicker/css/datepicker.css',
+						'nomoEFW/app/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css',
+						'nomoEFW/app/lib/bootstrap-datetimepicker/css/datetimepicker.css',
+						'nomoEFW/app/lib/clockface/css/clockface.css',
+                        'dist/lib/jquery-file-upload/css/jquery.fileupload.css'
                     ]
                 }
             },
@@ -195,7 +182,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['karma:dev']);
     grunt.registerTask('test-phantom', ['karma:phantom']);
     grunt.registerTask('test-chrome', ['karma:chrome']);
-    grunt.registerTask('build', ['clean:beforebuild', 'copy:main', 'html2js', 'cssmin:libs', 'cssmin:all', 'uglify', 'concat:js', 'clean:afterbuild']); //', clean:afterbuild'
+    grunt.registerTask('build', ['clean:beforebuild', 'copy:main', 'cssmin:libs', 'cssmin:all', 'uglify', 'concat:js', 'clean:afterbuild']); //', clean:afterbuild'
     grunt.registerTask('build-with-test', ['test-single-run', 'build']);
 
     // Default task.
