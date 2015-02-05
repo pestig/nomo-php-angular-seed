@@ -48,14 +48,22 @@ class __nomo {
   
   public static function loadClass($className) { 
     $fileName=$className.".class.php";
+    $classNotFound=true;
     if(file_exists(static::$frameworkPath."/classes/".$fileName)){
       require_once(static::$frameworkPath."/classes/".$fileName);
+      $classNotFound=false;
     }
     if(file_exists(static::$projectPath."/classes/".$fileName)){
       require_once(static::$projectPath."/classes/".$fileName);
+      $classNotFound=false;
     }elseif(file_exists(static::$frameworkPath."/classes/__".$fileName)){
       require_once(static::$frameworkPath."/classes/__".$fileName);
+      $classNotFound=false;
       eval("class ".$className." extends __".$className." {}");//Ghost class
+    }
+
+    if($classNotFound){
+      eval("class ".$className." extends NomoDataSource {}");
     }
   }
     

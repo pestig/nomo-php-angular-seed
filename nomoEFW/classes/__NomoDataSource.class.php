@@ -303,7 +303,7 @@ class __NomoDataSource{
 		return $result;
 	}
 
-  public static $__ajax__select_whitelist=false;
+  public static $__ajax__select_whitelist=true;//false;
 	public static function select($params = array(),$groupid = FALSE){
     if($groupid === FALSE) $groupid=nomo::$session->groupid;
     $definition=static::getDefinition(array("method"=>__FUNCTION__), $groupid);
