@@ -4,27 +4,27 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         clean: {
-            beforebuild: ["dist/"],
-            afterbuild: ['dist/build/'],
+            beforebuild: ['nomoEFW/app/dist/'],
+            afterbuild: ['nomoEFW/app/dist/build/'],
         },
         copy: {
             main: {
                 files: [
 
                   // bootstrap
-                  { expand: true, cwd: 'bower_components/bootstrap/dist/', src: ['**'], dest: 'dist/lib/bootstrap/', filter: 'isFile' },
+                  { expand: true, cwd: 'bower_components/bootstrap/dist/', src: ['**'], dest: 'nomoEFW/app/dist/lib/bootstrap/', filter: 'isFile' },
 
                   // fontawesome
-                  { expand: true, cwd: 'bower_components/fontawesome/', src: ['**'], dest: 'dist/lib/fontawesome/', filter: 'isFile' },
+                  { expand: true, cwd: 'bower_components/fontawesome/', src: ['**'], dest: 'nomoEFW/app/dist/lib/fontawesome/', filter: 'isFile' },
 
 				  // lightbox
-                  { expand: true, cwd: 'nomoEFW/app/lib/lightbox/', src: ['**'], dest: 'dist/lib/lightbox/', filter: 'isFile' },
+                  { expand: true, cwd: 'nomoEFW/app/lib/lightbox/', src: ['**'], dest: 'nomoEFW/app/dist/lib/lightbox/', filter: 'isFile' },
 
 				  // select2
-                  { expand: true, cwd: 'nomoEFW/app/lib/select2/', src: ['**'], dest: 'dist/lib/select2/', filter: 'isFile' },
+                  { expand: true, cwd: 'nomoEFW/app/lib/select2/', src: ['**'], dest: 'nomoEFW/app/dist/lib/select2/', filter: 'isFile' },
 
 				  // jquery-file-upload
-				  { expand: true, cwd: '/nomoEFW/app/lib/jquery-file-upload/', src: ['**'], dest: 'dist/lib/jquery-file-upload/', filter: 'isFile' },
+				  { expand: true, cwd: '/nomoEFW/app/lib/jquery-file-upload/', src: ['**'], dest: 'nomoEFW/app/dist/lib/jquery-file-upload/', filter: 'isFile' },
 
                 ],
             },
@@ -33,32 +33,32 @@ module.exports = function (grunt) {
         cssmin: {
             libs: {
                 options: {
-                    target: './dist/../dist/lib/../'
+                    target: './dist/../nomoEFW/app/dist/lib/../'
                 },
                 files: {
-                    'dist/lib/style.min.css': [
-                        'dist/lib/bootstrap/css/bootstrap.css',
-						'dist/lib/fontawesome/css/font-awesome.css',
+                    'nomoEFW/app/dist/lib/style.min.css': [
+                        'nomoEFW/app/dist/lib/bootstrap/css/bootstrap.css',
+						'nomoEFW/app/dist/lib/fontawesome/css/font-awesome.css',
 						'bower_components/angular/angular-csp.css',
-                        'dist/lib/lightbox/css/lightbox.css',
-						'dist/lib/select2/select2.css',
-						'dist/lib/select2/select2-metronic.css',
+                        'nomoEFW/app/dist/lib/lightbox/css/lightbox.css',
+						'nomoEFW/app/dist/lib/select2/select2.css',
+						'nomoEFW/app/dist/lib/select2/select2-metronic.css',
 						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
 						'nomoEFW/app/lib/bootstrap-datepicker/css/datepicker.css',
 						'nomoEFW/app/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css',
 						'nomoEFW/app/lib/bootstrap-datetimepicker/css/datetimepicker.css',
 						'nomoEFW/app/lib/clockface/css/clockface.css',
-                        'dist/lib/jquery-file-upload/css/jquery.fileupload.css'
+                        'nomoEFW/app/dist/lib/jquery-file-upload/css/jquery.fileupload.css'
                     ]
                 }
             },
             all: {
                 options: {
-                    target: './dist/../'
+                    target: './nomoEFW/app/dist/../'
                 },
                 files: {
-                    'dist/nomo.min.css': [
-                        'dist/lib/style.min.css',
+                    'nomoEFW/app/dist/nomo.min.css': [
+                        'nomoEFW/app/dist/lib/style.min.css',
                         'nomoEFW/app/modules/common/css/app.css'
                     ]
                 }
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
                         'nomoEFW/app/modules/**/module.js',
                         'nomoEFW/app/modules/**/*.js'
                     ],
-                    dest: 'dist/build/nomo.core.min.js'
+                    dest: 'nomoEFW/app/dist/build/nomo.core.min.js'
                 }]
             }
         },
@@ -113,16 +113,16 @@ module.exports = function (grunt) {
 					'nomoEFW/app/lib/select2/select2.min.js'
 
                 ],
-                dest: 'dist/lib/all.js'
+                dest: 'nomoEFW/app/dist/lib/all.js'
             },
 
 			all: {
                 src: [
-                    'dist/lib/all.js',
-                    'dist/build/nomo.core.min.js',
+                    'nomoEFW/app/dist/lib/all.js',
+                    'nomoEFW/app/dist/build/nomo.core.min.js',
 
                 ],
-                dest: 'dist/nomo.min.js'
+                dest: 'nomoEFW/app/dist/nomo.min.js'
             }
         },
         karma: {
