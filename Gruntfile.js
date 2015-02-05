@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         cssmin: {
             libs: {
                 options: {
-                    target: './dist/../nomoEFW/app/dist/lib/../'
+                    target: './nomoEFW/app/dist/lib/'
                 },
                 files: {
                     'nomoEFW/app/dist/lib/style.min.css': [
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
             },
             all: {
                 options: {
-                    target: './nomoEFW/app/dist/../'
+                    target: './nomoEFW/app/dist/'
                 },
                 files: {
                     'nomoEFW/app/dist/nomo.min.css': [
