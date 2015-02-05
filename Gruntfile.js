@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                     target: './nomoEFW/app/dist/lib/'
                 },
                 files: {
-                    'nomoEFW/app/dist/lib/style.min.css': [
+                    'nomoEFW/app/dist/lib/all.min.css': [
                         'nomoEFW/app/dist/lib/bootstrap/css/bootstrap.css',
 						'nomoEFW/app/dist/lib/fontawesome/css/font-awesome.css',
 						'bower_components/angular/angular-csp.css',
@@ -58,7 +58,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'nomoEFW/app/dist/nomo.min.css': [
-                        'nomoEFW/app/dist/lib/style.min.css',
+                        'nomoEFW/app/dist/lib/all.min.css',
                         'nomoEFW/app/modules/common/css/app.css'
                     ]
                 }
