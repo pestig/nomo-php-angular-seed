@@ -1,15 +1,12 @@
 {{=<% %>=}}
 <!DOCTYPE html>
 <html lang="en" ng-app="nomoEFW">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Frontend</title>
 
     <!-- nomo CSS -->
@@ -21,25 +18,21 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body>
 	<h1>Frontend</h1>
-
 	<div>
-		{{sampletable.selection}}
-		<div class="row">
-			<div nomo-table="sampletable" nomo-table-class="'Peldatabla'" class="col-md-6"></div>
-			<div ng-if="sampletable.activerow" nomo-form="samplefrom" nomo-form-class="sampletable.class" nomo-form-id="sampletable.activerow.rowid"  class="col-md-6"></div>
-		</div>
+        {{sampletable.selection}}
+        <div class="container">
+            <div class="row">
+                <div nomo-table="sampletable" nomo-table-class="'Peldatabla'" class="col-md-6"></div>
+                <div ng-if="sampletable.activerow" nomo-form="samplefrom" nomo-form-class="sampletable.class" nomo-form-id="sampletable.activerow.rowid"  class="col-md-6"></div>
+            </div>
+        </div>
 	</div>
 
-    <!-- jQuery -->
-	<script src="/dist/lib/all.js?ver=<%VERSION%>" type="text/javascript"></script>
-	<script src="/dist/build/nomo.core.min.js?ver=<%VERSION%>" type="text/javascript"></script>
-	<!--<script src="/dist/nomo.min.js?ver=<%VERSION%>" type="text/javascript"></script>-->
-
+    <!-- nomo JS -->
+	<script src="/dist/nomo.min.js?ver=<%VERSION%>" type="text/javascript"></script>
 </body>
 
 </html>

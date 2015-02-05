@@ -84,33 +84,33 @@ module.exports = function (grunt) {
         },
         concat: {
             options: {
-                separator: ';'
+                //separator: ';'
             },
 			lib: {
                 src: [
                     'bower_components/jquery/dist/jquery.min.js',
-					//'bower_components/jquery-ui/jquery-ui.min.js',
-					//'bower_components/bootstrap/dist/js/bootstrap.min.js',
-					//'bower_components/angular/angular.js',
-					//'bower_components/angular-route/angular-route.js',
-					//'bower_components/angular-bootstrap/ui-bootstrap.js',
-					//'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-					//'nomoEFW/app/lib/jquery-autosize/jquery.autosize.js',
-					//'nomoEFW/app/lib/jquery-mask/jquery.mask.js',
-					//'nomoEFW/app/lib/lightbox/js/lightbox.min.js',
-					//'nomoEFW/app/lib/lz-string/libs/lz-string-1.3.3-min.js',
-					//'nomoEFW/app/lib/bootbox/bootbox.min.js',
-					//'nomoEFW/app/lib/bootstrap-datepicker/js/bootstrap-datepicker.js',
-					//'nomoEFW/app/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js',
-					//'nomoEFW/app/lib/bootstrap-daterangepicker/moment.min.js',
-					//'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker.js',
+					'bower_components/jquery-ui/jquery-ui.min.js',
+					'bower_components/bootstrap/dist/js/bootstrap.min.js',
+					'bower_components/angular/angular.js',
+					'bower_components/angular-route/angular-route.js',
+					'bower_components/angular-bootstrap/ui-bootstrap.js',
+					'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+					'nomoEFW/app/lib/jquery-autosize/jquery.autosize.js',
+					'nomoEFW/app/lib/jquery-mask/jquery.mask.js',
+					'nomoEFW/app/lib/lightbox/js/lightbox.min.js',
+					'nomoEFW/app/lib/lz-string/libs/lz-string-1.3.3-min.js',
+					'nomoEFW/app/lib/bootbox/bootbox.min.js',
+					'nomoEFW/app/lib/bootstrap-datepicker/js/bootstrap-datepicker.js',
+					'nomoEFW/app/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js',
+					'nomoEFW/app/lib/bootstrap-daterangepicker/moment.min.js',
+					'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker.js',
 					//'nomoEFW/app/lib/bootstrap-colorpicker/js/bootstrap-colorpicker.js',
-					//'nomoEFW/app/lib/bootstrap-timepicker/js/bootstrap-timepicker.js',
-					//'nomoEFW/app/lib/clockface/js/clockface.js',
-					//'nomoEFW/app/lib/gritter/js/jquery.gritter.js',
-					//'nomoEFW/app/lib/jquery-file-upload/js/jquery.fileupload.js',
-					//'nomoEFW/app/lib/jquery-file-upload/js/jquery.iframe-transport.js',
-					//'nomoEFW/app/lib/select2/select2.min.js'
+					'nomoEFW/app/lib/bootstrap-timepicker/js/bootstrap-timepicker.js',
+					'nomoEFW/app/lib/clockface/js/clockface.js',
+					'nomoEFW/app/lib/gritter/js/jquery.gritter.js',
+					'nomoEFW/app/lib/jquery-file-upload/js/jquery.fileupload.js',
+					'nomoEFW/app/lib/jquery-file-upload/js/jquery.iframe-transport.js',
+					'nomoEFW/app/lib/select2/select2.min.js'
 
                 ],
                 dest: 'dist/lib/all.js'
@@ -163,8 +163,8 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['karma:dev']);
     grunt.registerTask('test-phantom', ['karma:phantom']);
     grunt.registerTask('test-chrome', ['karma:chrome']);
-    //grunt.registerTask('build', ['clean:beforebuild', 'copy:main', 'cssmin:libs', 'cssmin:all', 'uglify', 'concat:lib', 'concat:all', 'clean:afterbuild']);
-	grunt.registerTask('build', ['clean:beforebuild', 'uglify','concat:lib']);
+    grunt.registerTask('build', ['clean:beforebuild', 'copy:main', 'cssmin:libs', 'cssmin:all', 'uglify', 'concat:lib', 'concat:all', 'clean:afterbuild']);
+	//grunt.registerTask('build', ['clean:beforebuild', 'uglify','concat:lib']);
     grunt.registerTask('build-with-test', ['test-single-run', 'build']);
 
     // Default task.
