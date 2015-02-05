@@ -22,11 +22,20 @@
 <body>
 	<h1>Frontend</h1>
 	<div>
-        {{sampletable.selection}}
-        <div class="container">
+
+        <div class="container-fluid">
             <div class="row">
                 <div nomo-table="sampletable" nomo-table-class="'Peldatabla'" class="col-md-6"></div>
                 <div ng-if="sampletable.activerow" nomo-form="samplefrom" nomo-form-class="sampletable.class" nomo-form-id="sampletable.activerow.rowid"  class="col-md-6"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div  class="col-md-12">
+                    Selected rows: <strong>{{sampletable.selection}}</strong><br />
+                    Active row: <strong>{{sampletable.activerow}}</strong><br />
+                </div>
             </div>
         </div>
 	</div>
