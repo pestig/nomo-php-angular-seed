@@ -1,5 +1,17 @@
 module.exports = function (grunt) {
     // Project configuration.
+	var libFiles= grunt.file.readJSON('nomoEFW/app/lib.json');
+
+	var jsFiles=libFiles.js;
+	var cssFiles=[];
+	for(var i=0;i<libFiles.css.length;i++){
+		var item=libFiles.css[i];
+		if(item.grunt)
+			cssFiles.push(item.grunt);
+		else
+			cssFiles.push(item.include);
+	}
+
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -15,7 +27,8 @@ module.exports = function (grunt) {
                   { expand: true, cwd: 'bower_components/bootstrap/dist/', src: ['**'], dest: 'nomoEFW/app/dist/lib/bootstrap/', filter: 'isFile' },
 
                   // fontawesome
-                  { expand: true, cwd: 'bower_components/fontawesome/', src: ['**'], dest: 'nomoEFW/app/dist/lib/fontawesome/', filter: 'isFile' },
+                  { expand: true, cwd: 'bower_components/fontawesome/css', src: ['**'], dest: 'nomoEFW/app/dist/lib/fontawesome/css', filter: 'isFile' },
+				  { expand: true, cwd: 'bower_components/fontawesome/fonts', src: ['**'], dest: 'nomoEFW/app/dist/lib/fontawesome/fonts', filter: 'isFile' },
 
 				  // lightbox
                   { expand: true, cwd: 'nomoEFW/app/lib/lightbox/', src: ['**'], dest: 'nomoEFW/app/dist/lib/lightbox/', filter: 'isFile' },
@@ -36,20 +49,7 @@ module.exports = function (grunt) {
                     target: './nomoEFW/app/dist/lib/'
                 },
                 files: {
-                    'nomoEFW/app/dist/lib/all.min.css': [
-                        'nomoEFW/app/dist/lib/bootstrap/css/bootstrap.css',
-						'nomoEFW/app/dist/lib/fontawesome/css/font-awesome.css',
-						'bower_components/angular/angular-csp.css',
-                        'nomoEFW/app/dist/lib/lightbox/css/lightbox.css',
-						'nomoEFW/app/dist/lib/select2/select2.css',
-						'nomoEFW/app/dist/lib/select2/select2-metronic.css',
-						'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css',
-						'nomoEFW/app/lib/bootstrap-datepicker/css/datepicker.css',
-						'nomoEFW/app/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css',
-						'nomoEFW/app/lib/bootstrap-datetimepicker/css/datetimepicker.css',
-						'nomoEFW/app/lib/clockface/css/clockface.css',
-                        'nomoEFW/app/dist/lib/jquery-file-upload/css/jquery.fileupload.css'
-                    ]
+                    'nomoEFW/app/dist/lib/all.min.css': cssFiles
                 }
             },
             all: {
@@ -87,32 +87,7 @@ module.exports = function (grunt) {
                 //separator: ';'
             },
 			lib: {
-                src: [
-                    'bower_components/jquery/dist/jquery.min.js',
-					'bower_components/jquery-ui/jquery-ui.min.js',
-					'bower_components/bootstrap/dist/js/bootstrap.min.js',
-					'bower_components/angular/angular.js',
-					'bower_components/angular-route/angular-route.js',
-					'bower_components/angular-bootstrap/ui-bootstrap.js',
-					'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-					'nomoEFW/app/lib/jquery-autosize/jquery.autosize.js',
-					'nomoEFW/app/lib/jquery-mask/jquery.mask.js',
-					'nomoEFW/app/lib/lightbox/js/lightbox.min.js',
-					'nomoEFW/app/lib/lz-string/libs/lz-string-1.3.3-min.js',
-					'nomoEFW/app/lib/bootbox/bootbox.min.js',
-					'nomoEFW/app/lib/bootstrap-datepicker/js/bootstrap-datepicker.js',
-					'nomoEFW/app/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js',
-					'nomoEFW/app/lib/bootstrap-daterangepicker/moment.min.js',
-					'nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker.js',
-					//'nomoEFW/app/lib/bootstrap-colorpicker/js/bootstrap-colorpicker.js',
-					'nomoEFW/app/lib/bootstrap-timepicker/js/bootstrap-timepicker.js',
-					'nomoEFW/app/lib/clockface/js/clockface.js',
-					'nomoEFW/app/lib/gritter/js/jquery.gritter.js',
-					'nomoEFW/app/lib/jquery-file-upload/js/jquery.fileupload.js',
-					'nomoEFW/app/lib/jquery-file-upload/js/jquery.iframe-transport.js',
-					'nomoEFW/app/lib/select2/select2.min.js'
-
-                ],
+                src: jsFiles,
                 dest: 'nomoEFW/app/dist/lib/all.js'
             },
 
