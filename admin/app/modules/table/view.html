@@ -73,6 +73,7 @@
             <a class="nomotable-sort btn btn-xs btn-default" ng-class="{'btn-primary': (table.activeSortColumn.name == column.name && table.activeSortColumn.direction == 'asc')}" ng-click="table.onSortClick(column.name,'asc')"><i class="fa fa-caret-up"></i></a>
             <a class="nomotable-sort btn btn-xs btn-default" ng-class="{'btn-primary': (table.activeSortColumn.name == column.name && table.activeSortColumn.direction == 'desc')}" ng-click="table.onSortClick(column.name,'desc')"><i class="fa fa-caret-down"></i></a>
         </td>
+        <td>Műveletek</td>
     </tr>
     </thead>
     <tbody>
@@ -81,6 +82,11 @@
         <td  ng-if="column.columnVisible" ng-repeat="column in table.definition.fields" ng-init="$rowIndex = $index">
             <span ng-if="!column.tableTemplateUrl">{{row[column.name+'_nomoefw_label'] || row[column.name]}}</span>
             <span ng-if="column.tableTemplateUrl" ng-include="column.tableTemplateUrl"></span>
+        </td>
+        <td>
+
+            <a href="/admin/{{table.class}}/{{row['rowid']}}">Edit</a>
+
         </td>
     </tr>
     </tbody>
