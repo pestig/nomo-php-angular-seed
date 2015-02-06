@@ -4,5 +4,5 @@
     define("DB_PASS", "p");
     define("DB_NAME", "dbdev");
     require_once(__DIR__."/nomoEFW/nomo.php");
-    include(nomo::$frameworkPath."/api/index.php");
+    include(__DIR__."/nomoEFW/api/index.php");
 ?>
