@@ -8,13 +8,11 @@ Telepítés
 ###Integrálás meglévő projektbe
 
  - Futtatható állomány letöltése: [https://github.com/pestig/nomo-php-angular-seed/archive/master.zip](https://github.com/pestig/nomo-php-angular-seed/archive/master.zip) 
- - Futtasuk le a **nomo-php-angular-seed-masterdbscripts/init.sql** scriptet az adatbázisunkon, hogy létrehozza a rendszer táblákat
+ - Futtasuk le a **nomo-php-angular-seed-master/dbscripts/init.sql** scriptet az adatbázisunkon, hogy létrehozza a rendszer táblákat
  - Másoljuk a **nomo-php-angular-seed-master/nomoEFW** mappát, a **nomo-php-angular-seed-master/api.php** és a **nomo-php-angular-seed-master/example.html** fájlt a weboldalunk/webalkalmazásunk gyökér könyvtárába.
  - Az **nomo-php-angular-seed-master/api.php** fájlban állítsuk be az adatbázis kapcsolatot
  
-Példa a használatra
-
-exmaple.html (átírva a *nomo-table-class="'Peldatabla'"* kifejezést bármilyen adatbázis táblát megjeleníthetünk):
+Példa: átírva a *nomo-table-class="'Peldatabla'"* kifejezést bármilyen adatbázis táblát megjeleníthetünk (**nomo-php-angular-seed-master/example.html**)
 
 ```html
 <!DOCTYPE html>
