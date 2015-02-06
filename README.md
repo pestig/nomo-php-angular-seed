@@ -1,5 +1,5 @@
-[nomoEFW](http://nomo.hu/) - nomo Enterprise Framework 
-======================================================
+[nomo](http://nomo.hu/) PHP Angular Seed project
+=======================================================
 
 
 Telepítés
