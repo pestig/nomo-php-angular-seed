@@ -13,7 +13,7 @@ Telepítés
 	- *nomo-php-angular-seed-master/nomoEFW* (mappa)
 	- *nomo-php-angular-seed-master/api.php* (fájl)
 	- *nomo-php-angular-seed-master/example.html* (fájl)
- 4. **adatbázis kapcsoalat beállítása:** Az *nomo-php-angular-seed-master/api.php* fájlban állítsuk be az adatbázis kapcsolatot
+ 4. **Adatbázis kapcsoalat beállítása:** A *nomo-php-angular-seed-master/api.php* fájlban állítsuk be az adatbázis kapcsolatot
  
 Példa a használatra: átírva a *nomo-table-class="'Peldatabla'"* kifejezést bármilyen adatbázis táblát, formot megjeleníthetünk (*nomo-php-angular-seed-master/example.html*)
 
