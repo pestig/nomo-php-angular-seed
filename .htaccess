@@ -6,7 +6,9 @@ RewriteCond   %{REQUEST_URI}  !^/app.*
 RewriteCond   %{REQUEST_URI}  !^/bower_components/.*
 RewriteCond   %{REQUEST_URI}  !^/nomoEFW/app/.*
 RewriteCond   %{REQUEST_URI}  !^/admin/app/.*
-RewriteCond   %{REQUEST_URI}  !^/frontend/app/.*
+RewriteCond   %{REQUEST_URI}  !^/frontend-php-website/app/.*
+RewriteCond   %{REQUEST_URI}  !^/frontend-single-page-app/app/.*
+RewriteCond   %{REQUEST_URI}  !^/frontend-static/.*
 RewriteCond   %{REQUEST_URI}  !^/backend/app/.*
 RewriteCond   %{REQUEST_URI}  !^/media/.*
 RewriteCond   %{REQUEST_URI}  !^/dist/.*

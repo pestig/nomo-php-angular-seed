@@ -10,7 +10,7 @@ try{
   }else if(nomo::$requestURIPathArray[0]=="admin"){
     include(nomo::$projectPath."/admin/index.php");
   }else{
-    include(nomo::$projectPath."/frontend/index.php");
+    include(nomo::$projectPath."/frontend-php-website/index.php");
   }
 }catch(NomoException $e){    
   $resp=new stdClass;
