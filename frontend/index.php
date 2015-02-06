@@ -6,7 +6,7 @@
 	$templateData["VERSION"]=VERSION;
 	$templateData["RANDOM"]=rand() . rand() ;
     $templateData["NOMOEFW_JS_INCLUDE_HTML"]=NomoUtils::getJSIncludeHtml(__DIR__."/../nomoEFW/app/modules");
-	$template=file_get_contents(__DIR__.'/indexmin.template.html');
+	$template=file_get_contents(__DIR__.'/index.template.html');
 
 	echo $mustache->render($template,$templateData);
 ?>
