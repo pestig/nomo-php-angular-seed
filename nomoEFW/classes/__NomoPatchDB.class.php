@@ -7,7 +7,7 @@ class __NomoPatchDB{
 	  set_time_limit ( 300 );
 
 	  if(!isset($wwwPath))  $wwwPath=realpath(__DIR__."/../../");
-	  $dbPatchesPath=$wwwPath."/dbpatches";
+	  $dbPatchesPath=$wwwPath."/dbscripts/patches";
 
 	  setlocale(LC_ALL, 'en_US.UTF8');
 	  date_default_timezone_set('Europe/Budapest');

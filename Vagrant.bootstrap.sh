@@ -13,9 +13,9 @@ then
 		echo "GRANT ALL ON dbdev.* TO 'uvekhu01_vir'@'localhost'" | mysql -uroot -pp
     echo "flush privileges" | mysql -uroot -pp
     
-    if [ -f /vagrant/dbpatches/init/init.sql ];
+    if [ -f /vagrant/dbscripts/init.sql ];
     then
-        mysql -uroot -pp dbdev < /vagrant/dbpatches/init/init.sql
+        mysql -uroot -pp dbdev < /vagrant/dbscripts/init.sql
     fi
     
     sudo touch /var/log/vagrantsetup
