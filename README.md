@@ -8,7 +8,7 @@ Telepítés
 ###Integrálás meglévő projektbe
 
  1. **Letöltés:** [https://github.com/pestig/nomo-php-angular-seed/archive/master.zip](https://github.com/pestig/nomo-php-angular-seed/archive/master.zip) 
- 2. **Adatbázis frissítés:** futtasuk le a *nomo-php-angular-seed-master/dbscripts/init.sql* scriptet az adatbázisunkon, hogy létrehozza a rendszer táblákat
+ 2. **Adatbázis frissítés:** futtasuk le a *nomo-php-angular-seed-master/dbscripts/init.sql* scriptet az adatbázisunkon, hogy létrehozza a rendszer táblákat (cronjob, file, peldatabla, session, user, _dbpatchlist)
  3. **nomo Fájlok másolása:** Másoljuk a következő mappát és fájlokat a weboldalunk gyökér (www route) mappájába:
 	- *nomo-php-angular-seed-master/nomoEFW* (mappa)
 	- *nomo-php-angular-seed-master/api.php* (fájl)
