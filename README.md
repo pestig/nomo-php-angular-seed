@@ -2,31 +2,30 @@
 ======================================================
 
 
-About
+Telepítés
 --------------------------------------
 
-GitHub: [https://github.com/pestig/nomo-php-angular-seed.git](https://github.com/pestig/nomo-php-angular-seed.git)
-
-
-Integrálás meglévő projektbe
---------------------------------------
+###Integrálás meglévő projektbe
 
  - Futtatható állomány letöltése: [https://github.com/pestig/nomo-php-angular-seed/archive/master.zip](https://github.com/pestig/nomo-php-angular-seed/archive/master.zip) 
- - Futtasuk le a *nomo-php-angular-seed-masterdbscripts/init.sql* scriptet az adatbázisunkon, hogy létrehozza a rendszer táblákat
- - Másoljuk a *nomo-php-angular-seed-master/nomoEFW* mappát, az *nomo-php-angular-seed-master/api.php* és az *nomo-php-angular-seed-master/example.html* fájlt a weboldalunk/webalkalmazásunk gyökér könyvtárába.
- - Az *nomo-php-angular-seed-master/api.php* fájlban állítsuk be az adatbázis kapcsolatot
+ - Futtasuk le a ***nomo-php-angular-seed-masterdbscripts/init.sql** scriptet az adatbázisunkon, hogy létrehozza a rendszer táblákat
+ - Másoljuk a **nomo-php-angular-seed-master/nomoEFW** mappát, a **nomo-php-angular-seed-master/api.php** és a **nomo-php-angular-seed-master/example.html** fájlt a weboldalunk/webalkalmazásunk gyökér könyvtárába.
+ - Az **nomo-php-angular-seed-master/api.php** fájlban állítsuk be az adatbázis kapcsolatot
+ 
+Példa a használatra
+
  - Nyissuk meg böngészőben az example.html fájlt és élvezzük az eredményt :)
+ - Bármelyik adatbázis táblánkat megjeelentihetjük ez exmaple.html ben átírva a következő kifejezést: *nomo-table-class="'Peldatabla'"*
 
 
-Telepítés új projekt indítása esetén
---------------------------------------
+###Új projekt indítása esetén
 
-###Fejlesztői környezet létrhozása
+####Fejlesztői környezet létrhozása
 
  - [Vagrant](https://www.vagrantup.com/downloads.html) letöltése és telepítése
  - [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads) letöltése és telepítése
  
-###Alkalmazás futtatása
+####Alkalmazás futtatása
 
 Futtatható állomány letöltése: [https://github.com/pestig/nomo-php-angular-seed/archive/master.zip](https://github.com/pestig/nomo-php-angular-seed/archive/master.zip) 
 
