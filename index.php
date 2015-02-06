@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__)."/nomoEFW/nomo.php");
+require_once(dirname(__FILE__)."/nomo.php");
 
 if(defined('HTTP_AUTH') && HTTP_AUTH==true) include nomo::$frameworkPath."/lib/httpauth/httpauth.php";
 
