@@ -139,7 +139,6 @@ module.exports = function (grunt) {
     grunt.registerTask('test-phantom', ['karma:phantom']);
     grunt.registerTask('test-chrome', ['karma:chrome']);
     grunt.registerTask('build', ['clean:beforebuild', 'copy:main', 'cssmin:libs', 'cssmin:all', 'uglify', 'concat:lib', 'concat:all', 'clean:afterbuild']);
-	//grunt.registerTask('build', ['clean:beforebuild', 'uglify','concat:lib']);
     grunt.registerTask('build-with-test', ['test-single-run', 'build']);
 
     // Default task.

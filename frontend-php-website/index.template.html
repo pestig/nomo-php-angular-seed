@@ -9,31 +9,13 @@
     <meta name="author" content="">
     <title>Frontend</title>
 
-	<!-- Bootstrap Core CSS -->
-	<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css?ver=<%VERSION%>" rel="stylesheet" type="text/css">
+	<%#NOMODEV_CSS_HTML%>
+		<%{NOMODEV_CSS_HTML}%>
+	<%/NOMODEV_CSS_HTML%>
+	<%^NOMODEV_CSS_HTML%>
+		<link href="/nomoEFW/app/dist/nomo.min.css?ver=<%VERSION%>" rel="stylesheet" type="text/css">
+	<%/NOMODEV_CSS_HTML%>
 
-	<!-- Custom Fonts -->
-	<link href="/bower_components/fontawesome/css/font-awesome.min.css?ver=<%VERSION%>" rel="stylesheet" type="text/css">
-
-	<!-- Angular CSS -->
-	<link href="/bower_components/angular/angular-csp.css?ver=<%VERSION%>" rel="stylesheet" type="text/css">
-
-	<!-- nomo CSS-->
-	<link href="/nomoEFW/app/modules/common/css/app.css?ver=<%VERSION%>" rel="stylesheet" type="text/css"/>
-
-	<!--<link href="/nomoEFW/app/lib/data-tables/DT_bootstrap.css?ver=<%VERSION%>" rel="stylesheet" />-->
-	<link href="/nomoEFW/app/lib/lightbox/css/lightbox.css?ver=<%VERSION%>"  rel="stylesheet" type="text/css" />
-	<link href="/nomoEFW/app/lib/select2/select2.css?ver=<%VERSION%>" rel="stylesheet" type="text/css" />
-	<link href="/nomoEFW/app/lib/select2/select2-metronic.css?ver=<%VERSION%>" rel="stylesheet" />
-	<link href="/nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker-bs3.css?ver=<%VERSION%>" rel="stylesheet" type="text/css"/>
-	<link href="/nomoEFW/app/lib/bootstrap-datepicker/css/datepicker.css?ver=<%VERSION%>" rel="stylesheet" type="text/css" />
-	<link href="/nomoEFW/app/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css?ver=<%VERSION%>" rel="stylesheet" type="text/css" />
-	<link href="/nomoEFW/app/lib/bootstrap-datetimepicker/css/datetimepicker.css?ver=<%VERSION%>" rel="stylesheet" type="text/css" />
-	<link href="/nomoEFW/app/lib/clockface/css/clockface.css?ver=<%VERSION%>" rel="stylesheet" type="text/css" />
-	<link href="/nomoEFW/app/lib/jquery-file-upload/css/jquery.fileupload.css?ver=<%VERSION%>" rel="stylesheet" type="text/css"/>
-
-    <!-- nomo min CSS -->
-	<!--<link href="/nomoEFW/app/dist/nomo.min.css?ver=<%VERSION%>" rel="stylesheet" type="text/css">-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -63,44 +45,13 @@
         </div>
 	</div>
 
-	<!-- jQuery -->
-	<script src="/bower_components/jquery/dist/jquery.min.js?ver=<%VERSION%>" type="text/javascript"></script>
-	<script src="/bower_components/jquery-ui/jquery-ui.min.js?ver=<%VERSION%>" type="text/javascript"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js?ver=<%VERSION%>"></script>
-
-	<!-- Angular Core JavaScript -->
-	<script src="/bower_components/angular/angular.js?ver=<%VERSION%>"></script>
-	<script src="/bower_components/angular-route/angular-route.js?ver=<%VERSION%>"></script>
-	<script src="/bower_components/angular-bootstrap/ui-bootstrap.js?ver=<%VERSION%>"></script>
-	<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js?ver=<%VERSION%>"></script>
-
-
-	<script src="/nomoEFW/app/lib/jquery-autosize/jquery.autosize.js?ver=<%VERSION%>" type="text/javascript"></script>
-	<script src="/nomoEFW/app/lib/jquery-mask/jquery.mask.js?ver=<%VERSION%>" type="text/javascript"></script>
-	<script src="/nomoEFW/app/lib/lightbox/js/lightbox.min.js?ver=<%VERSION%>" type="text/javascript"></script>
-	<script src="/nomoEFW/app/lib/lz-string/libs/lz-string-1.3.3-min.js?ver=<%VERSION%>" type="text/javascript" ></script>
-
-	<script src="/nomoEFW/app/lib/bootbox/bootbox.min.js?ver=<%VERSION%>" type="text/javascript" ></script>
-	<script src="/nomoEFW/app/lib/bootstrap-datepicker/js/bootstrap-datepicker.js?ver=<%VERSION%>" type="text/javascript" ></script>
-	<script src="/nomoEFW/app/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js?ver=<%VERSION%>" type="text/javascript" ></script>
-	<script src="/nomoEFW/app/lib/bootstrap-daterangepicker/moment.min.js?ver=<%VERSION%>" type="text/javascript" ></script>
-	<script src="/nomoEFW/app/lib/bootstrap-daterangepicker/daterangepicker.js?ver=<%VERSION%>" type="text/javascript" ></script>
-	<script src="/nomoEFW/app/lib/bootstrap-colorpicker/js/bootstrap-colorpicker.js?ver=<%VERSION%>" type="text/javascript" ></script>
-	<script src="/nomoEFW/app/lib/bootstrap-timepicker/js/bootstrap-timepicker.js?ver=<%VERSION%>" type="text/javascript" ></script>
-	<script src="/nomoEFW/app/lib/clockface/js/clockface.js?ver=<%VERSION%>" type="text/javascript" ></script>
-	<script src="/nomoEFW/app/lib/gritter/js/jquery.gritter.js?ver=<%VERSION%>" type="text/javascript"></script>
-
-
-	<script src="/nomoEFW/app/lib/jquery-file-upload/js/jquery.fileupload.js?ver=<%VERSION%>" type="text/javascript"></script>
-	<script src="/nomoEFW/app/lib/jquery-file-upload/js/jquery.iframe-transport.js?ver=<%VERSION%>" type="text/javascript"></script>
-	<script src="/nomoEFW/app/lib/select2/select2.min.js?ver=<%VERSION%>" type="text/javascript" ></script>
-
-	<%{NOMOEFW_JS_INCLUDE_HTML}%>
-
-    <!-- nomo min JS -->
-	<!--<script src="/nomoEFW/app/dist/nomo.min.js?ver=<%VERSION%>" type="text/javascript"></script>-->
+	<%#NOMODEV_JS_HTML%>
+		<%{NOMODEV_JS_HTML}%>
+	<%/NOMODEV_JS_HTML%>
+	<%^NOMODEV_JS_HTML%>
+		<script src="/nomoEFW/app/dist/nomo.min.js?ver=<%VERSION%>" type="text/javascript"></script>
+	<%/NOMODEV_JS_HTML%>
 </body>
 
 </html>

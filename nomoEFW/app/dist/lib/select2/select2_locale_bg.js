@@ -1,6 +1,6 @@
 /**
  * Select2 <Language> translation.
- *
+ * 
  * Author: Lubomir Vikev <lubomirvikev@gmail.com>
  */
 (function ($) {

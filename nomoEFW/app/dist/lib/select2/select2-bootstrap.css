@@ -21,7 +21,7 @@ Select2 theme created for Metronic by Keenthemes
 .select2-drop {
     border: 1px solid #e5e5e5;
     background-color: #fff;
-    background-image: none;
+    background-image: none;    
     -webkit-box-shadow: none;
             box-shadow: none;
     filter: none;
@@ -67,16 +67,16 @@ Select2 theme created for Metronic by Keenthemes
     margin: 0;
     outline: 0;
     border: 1px solid #e5e5e5;
-    webkit-appearance: none !important;
-    color: #333333;
-    outline: 0;
+    webkit-appearance: none !important;   
+    color: #333333;         
+    outline: 0;    
     height: auto !important;
     min-height: 26px;
     padding: 6px 6px !important;
     line-height: 20px;
     font-size: 14px;
     font-weight: normal;
-    vertical-align: top;
+    vertical-align: top;  
     background-color: #ffffff;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -238,7 +238,7 @@ Select2 theme created for Metronic by Keenthemes
 .modal-open .select2-drop {
     z-index: 10102;
 }
-
+ 
 .modal-open .select2-search {
     z-index: 10102;
 }

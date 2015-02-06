@@ -1,6 +1,6 @@
 /**
  * Select2 <fa> translation.
- *
+ * 
  * Author: Ali Choopan <choopan@arsh.co>
  */
 (function ($) {

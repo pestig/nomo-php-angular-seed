@@ -1,6 +1,6 @@
 /**
  * Select2 lithuanian translation.
- *
+ * 
  * Author: CRONUS Karmalakas <cronus dot karmalakas at gmail dot com>
  */
 (function ($) {

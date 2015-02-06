@@ -16,7 +16,7 @@ class __NomoUtils{
 		return static::$htmlfilter->process($str);
 	}
 
-	public static function getJSIncludeHtml($path) {
+	public static function getAngularModules($path) {
 		$html="";
 		$htmlModules="";
 		$ite=new RecursiveDirectoryIterator($path);
@@ -32,11 +32,57 @@ class __NomoUtils{
 				}
 		}
 
-		$result="<!-- JS_INCLUDE_HTML -->\n";
+		$result="\n";
 		$result.=$htmlModules.$html;
-		$result.="\t<!-- JS_INCLUDE_HTML -->\n";
 
 		return $result;
+	}
+
+	public static function getNomoEFWAngularModules($path) {
+		$html="";
+		$htmlModules="";
+		$ite=new RecursiveDirectoryIterator($path);
+		$Iterator = new RecursiveIteratorIterator($ite);
+		$Regex = new RegexIterator($Iterator, '/^.+js$/i', RecursiveRegexIterator::GET_MATCH);
+		foreach ($Regex as $filename=>$cur) {
+				//azért kell replace, mert windows-on a könyvtárseparator \, az easyphp apache-nak viszont / kell
+				$local="".str_replace(DIRECTORY_SEPARATOR,'/',end(explode('..',$filename)));
+			  if(basename($local, ".js")=="module"){
+				  $htmlModules.="\t\t<script src=\"/nomoEFW".$local."?ver=".VERSION."\"></script>\n";
+				}else{
+					$html.="\t\t<script src=\"/nomoEFW".$local."?ver=".VERSION."\"></script>\n";
+				}
+		}
+
+		$result="\n";
+		$result.=$htmlModules.$html;
+
+		return $result;
+	}
+
+	public static function getNomoDevCSS() {
+		$css="<!-- NOMODEV_CSS_HTML -->\n";
+		$lib=json_decode(file_get_contents(__DIR__."/../app/lib.json"),true);
+        for($i=0;$i<count($lib["css"]);$i++){
+			$cssFile=$lib["css"][$i]["include"];
+			$css.="\t\t<link href='/".$cssFile."?ver=".VERSION."' rel='stylesheet' type='text/css' />\n";
+		}
+		$css.="\t\t<link href='/nomoEFW/app/modules/common/css/app.css?ver=".VERSION."' rel='stylesheet' type='text/css' />\n";
+		$css.="\t\t<!-- NOMODEV_CSS_HTML -->";
+		return $css;
+	}
+
+	public static function getNomoDevJS() {
+		$js="<!-- NOMODEV_JS_HTML -->\n";
+		$lib=json_decode(file_get_contents(__DIR__."/../app/lib.json"),true);
+        for($i=0;$i<count($lib["js"]);$i++){
+			$jsFile=$lib["js"][$i];
+			$js.="\t\t<script src='/".$jsFile."?ver=".VERSION."' type='text/javascript'></script>\n";
+		}
+
+		$js.=NomoUtils::getNomoEFWAngularModules(__DIR__."/../app/modules");
+		$js.="\t\t<!-- NOMODEV_JS_HTML -->";
+		return $js;
 	}
 
     public static function get_gravatar( $email, $s = 88, $d = 'retro', $r = 'g', $img = false, $atts = array() ) {

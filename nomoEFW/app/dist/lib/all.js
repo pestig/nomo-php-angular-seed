@@ -26776,7 +26776,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
       //we need to propagate user's query so we can higlight matches
       scope.query = undefined;
 
-      //Declare the timeout promise var outside the function scope so that stacked calls can be cancelled later
+      //Declare the timeout promise var outside the function scope so that stacked calls can be cancelled later 
       var timeoutPromise;
 
       var scheduleSearchWithTimeout = function(inputValue) {
@@ -30679,7 +30679,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
       //we need to propagate user's query so we can higlight matches
       scope.query = undefined;
 
-      //Declare the timeout promise var outside the function scope so that stacked calls can be cancelled later
+      //Declare the timeout promise var outside the function scope so that stacked calls can be cancelled later 
       var timeoutPromise;
 
       var scheduleSearchWithTimeout = function(inputValue) {
@@ -31542,7 +31542,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 
                 __p.destroyEvents();
                 __p.setOnKeyUp();
-                __p.setOnPaste();
+                __p.setOnPaste();    
             });
         };
 
@@ -31595,7 +31595,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
             },
             applyMask: function (mask) {
                 if (__p.getVal() === "") return;
-
+                
                 var hasMore = function (entries, i) {
                     while (i < entries.length) {
                         if (entries[i] !== undefined) return true;
@@ -31603,7 +31603,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
                     }
                     return false;
                 },
-                getMatches = function (v) {
+                getMatches = function (v) { 
                     v = (typeof v === "string") ? v : v.join("");
                     var matches = v.match(new RegExp(__p.maskToRegex(mask))) || [];
                     matches.shift();
@@ -31613,7 +31613,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
                 mask = __p.getMask(val, mask),
                 val = options.reverse ? __p.removeMaskChars(val) :  val, cDigitCharRegex,
                 matches = getMatches(val);
-
+                
                 // cleaning
                 while (matches.join("").length < __p.removeMaskChars(val).length) {
                     matches = matches.join("").split("");
@@ -31621,11 +31621,11 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
                     mask = __p.getMask(val, mask);
                     matches = getMatches(val);
                 }
-
+                
                 // masking
                 for (var k = 0; k < matches.length; k++) {
                     cDigitCharRegex = __p.specialChar(mask, k);
-
+                    
                     if (__p.maskChar(mask, k) && hasMore(matches, k)) {
                         matches[k] = mask.charAt(k);
                     } else {
@@ -31637,11 +31637,11 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
                                 if ("".match(new RegExp(cDigitCharRegex)) === null) {
                                     matches = matches.slice(0, k);
                                     break;
-                                }
+                                } 
                             }
-                        }
+                        } 
                     }
-                }
+                }                
                 return matches.join('');
             },
             getMask: function (cleanVal) {
@@ -31678,19 +31678,19 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
                     return new Array(num + 1).join(str);
                 },
                 rangeRegex = /([A-Z0-9])\{(\d+)?,([(\d+)])\}/g;
-
+                
                 return mask.replace(rangeRegex, function() {
                     var match = arguments,
                         mask = [],
-                        charStr = (plugin.settings.translationNumbers[match[1]]) ?
+                        charStr = (plugin.settings.translationNumbers[match[1]]) ? 
                                     String.fromCharCode(parseInt("6" + match[1], 16)) : match[1].toLowerCase();
 
                     mask[0] = match[1];
                     mask[1] = repeat(match[1], match[2] - 1);
                     mask[2] = repeat(charStr, match[3] - match[2]).toLowerCase();
-
+                    
                     plugin.settings.specialChars[charStr] = __p.specialChar(match[1]) + "?";
-
+                
                     return mask.join("");
                 });
             },
@@ -31701,7 +31701,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
                 return string;
             },
             seekCallbacks: function (e, newVal) {
-                if (options.onKeyPress && e.isTrigger === undefined &&
+                if (options.onKeyPress && e.isTrigger === undefined && 
                     typeof options.onKeyPress == "function")
                         options.onKeyPress(newVal, e, $el, options);
 
@@ -33209,7 +33209,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 				this.initialDate = options.initialDate || new Date();
 
 		this._attachEvents();
-
+		
 			this.formatViewType = "datetime";
 			if ('formatViewType' in options) {
 					this.formatViewType = options.formatViewType;
@@ -33399,7 +33399,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 				el.on(ev);
 			}
 		},
-
+		
 		_detachEvents: function(){
 			for (var i=0, el, ev; i<this._events.length; i++){
 				el = this._events[i][0];
@@ -33442,7 +33442,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 			if (
 				this.forceParse &&
 				(
-					this.isInput && this.element.val()  ||
+					this.isInput && this.element.val()  || 
 					this.hasInput && this.element.find('input').val()
 				)
 			)
@@ -33659,7 +33659,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 						this.picker.find('.datetimepicker-hours thead th:eq(1)')
 								.text(dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
 						this.picker.find('.datetimepicker-minutes thead th:eq(1)')
-								.text(dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
+								.text(dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);		        
 				}
 				this.picker.find('tfoot th.today')
 						.text(dates[this.language].today)
@@ -33817,7 +33817,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 				hour = d.getUTCHours();
 			switch (this.viewMode) {
 				case 0:
-					if (this.startDate !== -Infinity && year <= this.startDate.getUTCFullYear()
+					if (this.startDate !== -Infinity && year <= this.startDate.getUTCFullYear() 
 													 && month <= this.startDate.getUTCMonth()
 													 && day <= this.startDate.getUTCDate()
 													 && hour <= this.startDate.getUTCHours()) {
@@ -33825,7 +33825,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 					} else {
 						this.picker.find('.prev').css({visibility: 'visible'});
 					}
-					if (this.endDate !== Infinity && year >= this.endDate.getUTCFullYear()
+					if (this.endDate !== Infinity && year >= this.endDate.getUTCFullYear() 
 													&& month >= this.endDate.getUTCMonth()
 													&& day >= this.endDate.getUTCDate()
 													&& hour >= this.endDate.getUTCHours()) {
@@ -33835,14 +33835,14 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 					}
 					break;
 				case 1:
-					if (this.startDate !== -Infinity && year <= this.startDate.getUTCFullYear()
+					if (this.startDate !== -Infinity && year <= this.startDate.getUTCFullYear() 
 													 && month <= this.startDate.getUTCMonth()
 													 && day <= this.startDate.getUTCDate()) {
 						this.picker.find('.prev').css({visibility: 'hidden'});
 					} else {
 						this.picker.find('.prev').css({visibility: 'visible'});
 					}
-					if (this.endDate !== Infinity && year >= this.endDate.getUTCFullYear()
+					if (this.endDate !== Infinity && year >= this.endDate.getUTCFullYear() 
 													&& month >= this.endDate.getUTCMonth()
 													&& day >= this.endDate.getUTCDate()) {
 						this.picker.find('.next').css({visibility: 'hidden'});
@@ -33851,13 +33851,13 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 					}
 					break;
 				case 2:
-					if (this.startDate !== -Infinity && year <= this.startDate.getUTCFullYear()
+					if (this.startDate !== -Infinity && year <= this.startDate.getUTCFullYear() 
 													 && month <= this.startDate.getUTCMonth()) {
 						this.picker.find('.prev').css({visibility: 'hidden'});
 					} else {
 						this.picker.find('.prev').css({visibility: 'visible'});
 					}
-					if (this.endDate !== Infinity && year >= this.endDate.getUTCFullYear()
+					if (this.endDate !== Infinity && year >= this.endDate.getUTCFullYear() 
 													&& month >= this.endDate.getUTCMonth()) {
 						this.picker.find('.next').css({visibility: 'hidden'});
 					} else {
@@ -34339,7 +34339,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 			this.picker.find('>div').hide().filter('.datetimepicker-'+DPGlobal.modes[this.viewMode].clsName).css('display', 'block');
 			this.updateNavArrows();
 		},
-
+		
 		reset: function(e) {
 			this._setDate(null, 'date');
 		}
@@ -34919,7 +34919,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
             if (typeof options.applyClass == 'string')
                 this.applyClass = options.applyClass;
 
-            if (typeof options.cancelClass == 'string')
+            if (typeof options.cancelClass == 'string') 
                 this.cancelClass = options.cancelClass;
 
             if (typeof options.ranges == 'object') {
@@ -35097,10 +35097,10 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
             if (!this.timePicker)
                 this.startDate = this.startDate.startOf('day');
 
-            this.oldStartDate = this.startDate.clone();
+            this.oldStartDate = this.startDate.clone(); 
 
             this.updateView();
-            this.updateCalendars();
+            this.updateCalendars();  
         },
 
         setEndDate: function(endDate) {
@@ -35113,7 +35113,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
             if (!this.timePicker)
                 this.endDate = this.endDate.startOf('day');
 
-            this.endDate = this.endDate.clone();
+            this.endDate = this.endDate.clone();   
 
             this.updateView();
             this.updateCalendars();
@@ -36799,7 +36799,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 * Clockface - v1.0.0
 * Clockface timepicker for Twitter Bootstrap
 *
-* Confusion with noon and midnight:
+* Confusion with noon and midnight: 
 * http://en.wikipedia.org/wiki/12-hour_clock
 * Here considered '00:00 am' as midnight and '12:00 pm' as noon.
 *
@@ -36812,16 +36812,16 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
     var Clockface = function (element, options) {
         this.$element = $(element);
         this.options = $.extend({}, $.fn.clockface.defaults, options, this.$element.data());
-        this.init();
+        this.init();  
      };
 
     Clockface.prototype = {
-        constructor: Clockface,
+        constructor: Clockface, 
         init: function () {
           //apply template
           this.$clockface = $($.fn.clockface.template);
-          this.$clockface.find('.l1 .cell, .left.cell').html('<div class="outer"></div><div class="inner"></div>');
-          this.$clockface.find('.l5 .cell, .right.cell').html('<div class="inner"></div><div class="outer"></div>');
+          this.$clockface.find('.l1 .cell, .left.cell').html('<div class="outer"></div><div class="inner"></div>'); 
+          this.$clockface.find('.l5 .cell, .right.cell').html('<div class="inner"></div><div class="outer"></div>'); 
           this.$clockface.hide();
 
           this.$outer = this.$clockface.find('.outer');
@@ -36832,8 +36832,8 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
           this.ampm = null;
           this.hour = null;
           this.minute = null;
-
-          //click am/pm
+          
+          //click am/pm 
           this.$ampm.click($.proxy(this.clickAmPm, this));
 
           //click cell
@@ -36903,13 +36903,13 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
         hide: function() {
             this.$clockface.hide();
             if(!this.isInline) {
-              this.$element.removeClass('clockface-open');
+              this.$element.removeClass('clockface-open');  
               this.$element.off('keydown.clockface');
               $(window).off('resize.clockface');
             }
 
             //trigger hidden event
-            this.$element.triggerHandler('hidden.clockface', this.getTime(true));
+            this.$element.triggerHandler('hidden.clockface', this.getTime(true));            
         },
 
         /*
@@ -36930,7 +36930,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
         setTime: function(value) {
           var res, hour, minute, ampm = 'am';
 
-          //no new value
+          //no new value 
           if(value === undefined) {
             //if ampm null, it;s first showw, need to render hours ('am' by default)
             if(this.ampm === null) {
@@ -36946,7 +36946,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
           }
 
           //parse value from string
-          if(typeof value === 'string' && value.length) {
+          if(typeof value === 'string' && value.length) { 
             res = this.parseTime(value);
 
             //'24' always '0'
@@ -36954,30 +36954,30 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
               res.hour = 0;
             }
 
-            hour = res.hour;
-            minute = res.minute;
-            ampm = res.ampm;
+            hour = res.hour;             
+            minute = res.minute;             
+            ampm = res.ampm;             
           }
 
           //try to set ampm automatically
           if(hour > 11 && hour < 24) {
             ampm = 'pm';
-            //for 12h format substract 12 from value
+            //for 12h format substract 12 from value 
             if(!this.is24 && hour > 12) {
               hour -= 12;
             }
           } else if(hour >= 0 && hour < 11) {
-                //always set am for 24h and for '0' in 12h
+                //always set am for 24h and for '0' in 12h 
                 if(this.is24 || hour === 0) {
                    ampm = 'am';
-               }
+               } 
                //otherwise ampm should be defined in value itself and retrieved when parsing
-          }
+          }      
 
           this.setAmPm(ampm);
           this.setHour(hour);
           this.setMinute(minute);
-        },
+        },   
 
         /*
         Set ampm and re-fill hours
@@ -36995,7 +36995,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
           //re-fill and highlight hour
           this.fill('hour');
           this.highlight('hour');
-        },
+        },   
         /*
         Sets hour value and highlight if possible
         */
@@ -37032,7 +37032,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
           }
 
           this.highlight('minute');
-        },
+        },        
 
         /*
         Highlights hour/minute
@@ -37054,11 +37054,11 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 
         /*
         Fill values around
-        */
+        */ 
         fill: function(what) {
           var values = this.getValues(what),
               $cells = what === 'minute' ? this.$outer : this.$inner,
-              leadZero = what === 'minute';
+              leadZero = what === 'minute';           
 
           $cells.each(function(i){
             var v = values[i];
@@ -37067,7 +37067,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
             }
             $(this).text(v);
           });
-        },
+        },          
 
         /*
         returns values of hours or minutes, depend on ampm and 24/12 format (0-11, 12-23, 00-55, etc)
@@ -37109,10 +37109,10 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
           //update value in input
           if(!this.isInline) {
             this.$element.val(this.getTime());
-          }
+          }          
 
           //trigger pick event
-          this.$element.triggerHandler('pick.clockface', this.getTime(true));
+          this.$element.triggerHandler('pick.clockface', this.getTime(true));  
         },
 
         /*
@@ -37126,12 +37126,12 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
           //update value in input
           if(!this.isInline && !this.is24) {
             this.$element.val(this.getTime());
-          }
+          }    
 
           //trigger pick event
-          this.$element.triggerHandler('pick.clockface', this.getTime(true));
+          this.$element.triggerHandler('pick.clockface', this.getTime(true));                  
         },
-
+        
 
         /*
         Place widget below input
@@ -37146,7 +37146,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
             left: offset.left,
             zIndex: zIndex
           });
-        },
+        },  
 
         /*
         keydown handler (for not inline mode)
@@ -37156,13 +37156,13 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
           if(/^(9|27|13)$/.test(e.which)) {
             this.hide();
             return;
-          }
+          } 
 
           clearTimeout(this.timer);
           this.timer = setTimeout($.proxy(function(){
             this.setTime(this.$element.val());
           }, this), 500);
-        },
+        },  
 
         /*
         Parse format from options and set this.is24
@@ -37172,7 +37172,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
               hFormat = 'HH',
               mFormat = 'mm';
 
-          //hour format
+          //hour format    
           $.each(['HH', 'hh', 'H', 'h'], function(i, f){
             if(format.indexOf(f) !== -1) {
               hFormat = f;
@@ -37186,24 +37186,24 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
               mFormat = f;
               return false;
             }
-          });
+          });          
 
           //is 24 hour format
-          this.is24 = hFormat.indexOf('H') !== -1;
+          this.is24 = hFormat.indexOf('H') !== -1; 
 
           this.hFormat = hFormat;
           this.mFormat = mFormat;
         },
 
-
+       
 
         /*
         Parse value passed as string or Date object
         */
         parseTime: function(value) {
-          var hour = null,
-              minute = null,
-              ampm = 'am',
+          var hour = null, 
+              minute = null, 
+              ampm = 'am', 
               parts = [], digits;
 
             value = $.trim(value);
@@ -37242,10 +37242,10 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
                   break;
                   case 3:
                     hour = parseInt(digits[0], 10);  //e.g. 105
-                    minute = parseInt(digits[1]+digits[2], 10);
-                    if(minute > 59) {
+                    minute = parseInt(digits[1]+digits[2], 10); 
+                    if(minute > 59) { 
                       hour = parseInt(digits[0]+digits[1], 10); //e.g. 195
-                      minute = parseInt(digits[2], 10);
+                      minute = parseInt(digits[2], 10); 
                       if(hour > 24) {
                         hour = null;
                         minute = null;
@@ -37273,11 +37273,11 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
             var sep = this.options.format.match(/h\s*([^hm]?)\s*m/i); //HH-mm, HH:mm
             if(sep && sep.length) {
               sep = sep[1];
-            }
+            } 
 
-            //sep can be null for HH, and '' for HHmm
+            //sep can be null for HH, and '' for HHmm 
             this.separator = sep;
-
+    
             //parse from string
             //use reversed string and regexp to parse 2-digit minutes first
             //see http://stackoverflow.com/questions/141348/what-is-the-best-way-to-parse-a-time-into-a-date-object-from-user-input-in-javas
@@ -37308,11 +37308,11 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 
           if(!hour.length && !minute.length) {
             return '';
-          }
+          }   
 
           if(this.hFormat.length > 1 && hour.length === 1) {
             hour = '0' + hour;
-          }
+          }   
 
           if(this.mFormat.length > 1 && minute.length === 1) {
             minute = '0' + minute;
@@ -37343,7 +37343,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
           this.$clockface.remove();
           if(!this.isInline && this.options.trigger === 'focus') {
             this.$element.off('focus.clockface');
-          }
+          }          
         }
     };
 
@@ -37367,14 +37367,14 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
                 data[option].apply(data, args);
             }
         });
-    };
-
+    };  
+    
     $.fn.clockface.defaults = {
         //see http://momentjs.com/docs/#/displaying/format/
         format: 'H:mm',
         trigger: 'focus' //focus|manual
     };
-
+   
 
  $.fn.clockface.template = ''+
       '<div class="clockface">' +
@@ -37401,7 +37401,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
                 '<div class="cell"></div>' +
                 '<div class="cell"></div>' +
           '</div>'+
-      '</div>';
+      '</div>';  
 
 }(window.jQuery));
 /*
@@ -37416,12 +37416,12 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
  */
 
 (function($){
-
+ 	
 	/**
 	* Set it up as an object under the jQuery namespace
 	*/
 	$.gritter = {};
-
+	
 	/**
 	* Set up global options that the user can over-ride
 	*/
@@ -37432,7 +37432,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 		fade_out_speed: 1000, // how fast the notices fade out
 		time: 6000 // hang on the screen for...
 	}
-
+	
 	/**
 	* Add a gritter notification to the screen
 	* @see Gritter#add();
@@ -37442,16 +37442,16 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 		try {
 			return Gritter.add(params || {});
 		} catch(e) {
-
+		
 			var err = 'Gritter Error: ' + e;
-			(typeof(console) != 'undefined' && console.error) ?
-				console.error(err, params) :
+			(typeof(console) != 'undefined' && console.error) ? 
+				console.error(err, params) : 
 				alert(err);
-
+				
 		}
-
+		
 	}
-
+	
 	/**
 	* Remove a gritter notification from the screen
 	* @see Gritter#removeSpecific();
@@ -37459,7 +37459,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 	$.gritter.remove = function(id, params){
 		Gritter.removeSpecific(id, params || {});
 	}
-
+	
 	/**
 	* Remove all notifications
 	* @see Gritter#stop();
@@ -37467,19 +37467,19 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 	$.gritter.removeAll = function(params){
 		Gritter.stop(params || {});
 	}
-
+	
 	/**
 	* Big fat Gritter object
 	* @constructor (not really since its object literal)
 	*/
 	var Gritter = {
-
+		
 		// Public - options to over-ride with $.gritter.options in "add"
 		position: '',
 		fade_in_speed: '',
 		fade_out_speed: '',
 		time: '',
-
+		
 		// Private - no touchy the private parts
 		_custom_timer: 0,
 		_item_count: 0,
@@ -37488,7 +37488,7 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 		_tpl_title: '<span class="gritter-title">[[title]]</span>',
 		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper [[item_class]]" style="display:none"><div class="gritter-top"></div><div class="gritter-item">[[close]][[image]]<div class="[[class_name]]">[[title]]<p>[[text]]</p></div><div style="clear:both"></div></div><div class="gritter-bottom"></div></div>',
 		_tpl_wrap: '<div id="gritter-notice-wrapper"></div>',
-
+		
 		/**
 		* Add a gritter notification to the screen
 		* @param {Object} params The object that contains all the options for drawing the notification
@@ -37502,16 +37502,16 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 
 			// We might have some issues if we don't have a title or text!
 			if(!params.text){
-				throw 'You must supply "text" parameter.';
+				throw 'You must supply "text" parameter.'; 
 			}
-
+			
 			// Check the options and set them once
 			if(!this._is_setup){
 				this._runSetup();
 			}
-
+			
 			// Basics
-			var title = params.title,
+			var title = params.title, 
 				text = params.text,
 				image = params.image || '',
 				sticky = params.sticky || false,
@@ -37520,11 +37520,11 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 				time_alive = params.time || '';
 
 			this._verifyWrapper();
-
+			
 			this._item_count++;
-			var number = this._item_count,
+			var number = this._item_count, 
 				tmp = this._tpl_item;
-
+			
 			// Assign callbacks
 			$(['before_open', 'after_open', 'before_close', 'after_close']).each(function(i, val){
 				Gritter['_' + val + '_' + number] = ($.isFunction(params[val])) ? params[val] : function(){}
@@ -37532,22 +37532,22 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 
 			// Reset
 			this._custom_timer = 0;
-
+			
 			// A custom fade time set
 			if(time_alive){
 				this._custom_timer = time_alive;
 			}
-
+			
 			var image_str = (image != '') ? '<img src="' + image + '" class="gritter-image" />' : '',
 				class_name = (image != '') ? 'gritter-with-image' : 'gritter-without-image';
-
+			
 			// String replacements on the template
 			if(title){
 				title = this._str_replace('[[title]]',title,this._tpl_title);
 			}else{
 				title = '';
 			}
-
+			
 			tmp = this._str_replace(
 				['[[title]]', '[[text]]', '[[close]]', '[[image]]', '[[number]]', '[[class_name]]', '[[item_class]]'],
 				[title, text, this._tpl_close, image_str, this._item_count, class_name, item_class], tmp
@@ -37559,21 +37559,21 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 			}
 
 			$('#gritter-notice-wrapper').addClass(position).append(tmp);
-
+			
 			var item = $('#gritter-item-' + this._item_count);
-
+			
 			item.fadeIn(this.fade_in_speed, function(){
 				Gritter['_after_open_' + number]($(this));
 			});
-
+			
 			if(!sticky){
 				this._setFadeTimer(item, number);
 			}
-
+			
 			// Bind the hover/unhover states
 			$(item).bind('mouseenter mouseleave', function(event){
 				if(event.type == 'mouseenter'){
-					if(!sticky){
+					if(!sticky){ 
 						Gritter._restoreItemIfFading($(this), number);
 					}
 				}
@@ -37584,16 +37584,16 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 				}
 				Gritter._hoverState($(this), event.type);
 			});
-
+			
 			// Clicking (X) makes the perdy thing close
 			$(item).find('.gritter-close').click(function(){
 				Gritter.removeSpecific(number, {}, null, true);
 			});
-
+			
 			return number;
-
+		
 		},
-
+		
 		/**
 		* If we don't have any more gritter notifications, get rid of the wrapper using this check
 		* @private
@@ -37602,18 +37602,18 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 		* @param {Boolean} manual_close Did we close the gritter dialog with the (X) button
 		*/
 		_countRemoveWrapper: function(unique_id, e, manual_close){
-
+			
 			// Remove it then run the callback function
 			e.remove();
 			this['_after_close_' + unique_id](e, manual_close);
-
+			
 			// Check if the wrapper is empty, if it is.. remove the wrapper
 			if($('.gritter-item-wrapper').length == 0){
 				$('#gritter-notice-wrapper').remove();
 			}
-
+		
 		},
-
+		
 		/**
 		* Fade out an element after it's been on the screen for x amount of time
 		* @private
@@ -37630,15 +37630,15 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 				manual_close = unbind_events;
 
 			this['_before_close_' + unique_id](e, manual_close);
-
+			
 			// If this is true, then we are coming from clicking the (X)
 			if(unbind_events){
 				e.unbind('mouseenter mouseleave');
 			}
-
+			
 			// Fade it out or remove it
 			if(fade){
-
+			
 				e.animate({
 					opacity: 0
 				}, fade_out_speed, function(){
@@ -37646,45 +37646,45 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 						Gritter._countRemoveWrapper(unique_id, e, manual_close);
 					})
 				})
-
+				
 			}
 			else {
-
+				
 				this._countRemoveWrapper(unique_id, e);
-
+				
 			}
-
+						
 		},
-
+		
 		/**
-		* Perform actions based on the type of bind (mouseenter, mouseleave)
+		* Perform actions based on the type of bind (mouseenter, mouseleave) 
 		* @private
 		* @param {Object} e The jQuery element
 		* @param {String} type The type of action we're performing: mouseenter or mouseleave
 		*/
 		_hoverState: function(e, type){
-
+			
 			// Change the border styles and add the (X) close button when you hover
 			if(type == 'mouseenter'){
-
+				
 				e.addClass('hover');
-
+				
 				// Show close button
 				e.find('.gritter-close').show();
-
+						
 			}
 			// Remove the border styles and hide (X) close button when you mouse out
 			else {
-
+				
 				e.removeClass('hover');
-
+				
 				// Hide close button
 				e.find('.gritter-close').hide();
-
+				
 			}
-
+			
 		},
-
+		
 		/**
 		* Remove a specific notification based on an ID
 		* @param {Integer} unique_id The ID used to delete a specific notification
@@ -37693,17 +37693,17 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 		* @param {Boolean} unbind_events If we clicked on the (X) we set this to true to unbind mouseenter/mouseleave
 		*/
 		removeSpecific: function(unique_id, params, e, unbind_events){
-
+			
 			if(!e){
 				var e = $('#gritter-item-' + unique_id);
 			}
 
-			// We set the fourth param to let the _fade function know to
+			// We set the fourth param to let the _fade function know to 
 			// unbind the "mouseleave" event.  Once you click (X) there's no going back!
 			this._fade(e, unique_id, params || {}, unbind_events);
-
+			
 		},
-
+		
 		/**
 		* If the item is fading out and we hover over it, restore it!
 		* @private
@@ -37711,25 +37711,25 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 		* @param {Integer} unique_id The ID of the element
 		*/
 		_restoreItemIfFading: function(e, unique_id){
-
+			
 			clearTimeout(this['_int_id_' + unique_id]);
 			e.stop().css({ opacity: '', height: '' });
-
+			
 		},
-
+		
 		/**
 		* Setup the global options - only once
 		* @private
 		*/
 		_runSetup: function(){
-
+		
 			for(opt in $.gritter.options){
 				this[opt] = $.gritter.options[opt];
 			}
 			this._is_setup = 1;
-
+			
 		},
-
+		
 		/**
 		* Set the notification to fade out after a certain amount of time
 		* @private
@@ -37737,90 +37737,90 @@ window.bootbox=window.bootbox||function a(b,c){"use strict";function d(a){var b=
 		* @param {Integer} unique_id The ID of the element
 		*/
 		_setFadeTimer: function(e, unique_id){
-
+			
 			var timer_str = (this._custom_timer) ? this._custom_timer : this.time;
-			this['_int_id_' + unique_id] = setTimeout(function(){
+			this['_int_id_' + unique_id] = setTimeout(function(){ 
 				Gritter._fade(e, unique_id);
 			}, timer_str);
-
+		
 		},
-
+		
 		/**
 		* Bring everything to a halt
 		* @param {Object} params A list of callback functions to pass when all notifications are removed
-		*/
+		*/  
 		stop: function(params){
-
+			
 			// callbacks (if passed)
 			var before_close = ($.isFunction(params.before_close)) ? params.before_close : function(){};
 			var after_close = ($.isFunction(params.after_close)) ? params.after_close : function(){};
-
+			
 			var wrap = $('#gritter-notice-wrapper');
 			before_close(wrap);
 			wrap.fadeOut(function(){
 				$(this).remove();
 				after_close();
 			});
-
+		
 		},
-
+		
 		/**
 		* An extremely handy PHP function ported to JS, works well for templating
 		* @private
 		* @param {String/Array} search A list of things to search for
 		* @param {String/Array} replace A list of things to replace the searches with
 		* @return {String} sa The output
-		*/
+		*/  
 		_str_replace: function(search, replace, subject, count){
-
+		
 			var i = 0, j = 0, temp = '', repl = '', sl = 0, fl = 0,
 				f = [].concat(search),
 				r = [].concat(replace),
 				s = subject,
 				ra = r instanceof Array, sa = s instanceof Array;
 			s = [].concat(s);
-
+			
 			if(count){
 				this.window[count] = 0;
 			}
-
+		
 			for(i = 0, sl = s.length; i < sl; i++){
-
+				
 				if(s[i] === ''){
 					continue;
 				}
-
+				
 				for (j = 0, fl = f.length; j < fl; j++){
-
+					
 					temp = s[i] + '';
 					repl = ra ? (r[j] !== undefined ? r[j] : '') : r[0];
 					s[i] = (temp).split(f[j]).join(repl);
-
+					
 					if(count && s[i] !== temp){
 						this.window[count] += (temp.length-s[i].length) / f[j].length;
 					}
-
+					
 				}
 			}
-
+			
 			return sa ? s : s[0];
-
+			
 		},
-
+		
 		/**
 		* A check to make sure we have something to wrap our notices with
 		* @private
-		*/
+		*/  
 		_verifyWrapper: function(){
-
+		  
 			if($('#gritter-notice-wrapper').length == 0){
 				$('body').append(this._tpl_wrap);
 			}
-
+		
 		}
-
+		
 	}
-
+	
 })(jQuery);
 
 /*
