@@ -1,5 +1,9 @@
 <?php
-  require_once(dirname(__FILE__)."/config.php");
+  ini_set('display_errors',1);
+  error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+  setlocale(LC_ALL, 'en_US.UTF8');
+  date_default_timezone_set('Europe/Budapest');
+
   require_once(dirname(__FILE__)."/nomoEFW/__nomo.php");
 
   class nomo extends __nomo {
